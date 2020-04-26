@@ -1,5 +1,7 @@
 #import's necessários
 from .base import Nixest
+from .data import env
+
 
 """
 - Observação:

@@ -1,0 +1,10 @@
+{
+    "app":{
+          "token":"token do bot",
+          "secret":"secret do bot",
+          "id":"id do bot"
+         },
+    "bot":{
+           "prefix":["rx."]
+          } 
+}
