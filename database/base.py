@@ -1,5 +1,6 @@
 #Import's necessários (List import).
 from motor import motor_asyncio
+from .models import Guild
 
 #Classe principal da Database.
 class on_connect_db():
