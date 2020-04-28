@@ -26,7 +26,7 @@ class on_connect_db():
     async def register_guild(self, guild_id):
         data = {
                 "_id": guild_id,
-                "config":{"prefix":None,"language":"pt_BR"},
+                "config":{"prefix":"rx.","language":"pt_BR"},
                 "disable":{"command":[],"channel":[],"role":[],"member":[]}
                 }
         await self.guilds.insert_one(data)
