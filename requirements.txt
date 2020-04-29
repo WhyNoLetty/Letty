@@ -1,3 +1,4 @@
 discord.py
 motor
 dnspython
+git+https://github.com/Nixest-Inc/Translation.git
