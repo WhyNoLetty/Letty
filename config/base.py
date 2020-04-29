@@ -1,6 +1,7 @@
 #Import's necessários (List import).
 from discord.ext.commands import AutoShardedBot
 from database import on_connect_db
+import os
 
 #Classe da Nixest (Autoshared class).
 class Nixest(AutoShardedBot):
@@ -12,14 +13,37 @@ class Nixest(AutoShardedBot):
           self.env : Obter informações 'dict' da classe da parte 'env'como token, links, etc.
           self.db : Fornecer os dados para a conexão da database do bot como url, name, a variável do bot.
         """
-        self.loaded = True
+        self.loaded = False
         self.env = kwargs['env']
         self.db = on_connect_db(name=self.env.database.name, uri=self.env.database.url, bot=self)
 
+    #Evento do Nixest para carregar o(s) plugin(s).
+    async def on_start(self):
+        #Puxar todo os plugins de um directorio.
+        plugins = [p[:-3] for p in os.listdir("plugins") if p.endswith(".py")]
+        #Contar quantos plugins existem.
+        total_plugins = len(plugins)
+        #Enumerar todo os plugins e passar eles por um 'for', e após passar usar o 'try' para executar uma leitura do mesmo.
+        for i, plugin in enumerate(plugins, 1):
+          try:
+             #Carregar o plugin.
+             self.load_extension(f"plugins.{plugin}")
+          except Exception as e:
+              #Caso houver um erro ao carregar o plugin.
+              print(f"[Plugin] : Erro ao carregar o plugin {plugin}.\n{e.__class__.__name__}: {e}")
+          else:
+            #Quando o plugin carrega com sucesso.
+            print(f"[Plugin] : O plugin {plugin} carregado com sucesso. ({i}/{total_plugins})")
+        #Após carregar o(s) plugin(s) deixar a condição do loaded 'true'.
+        self.loaded = True
+    
     #Evento do Nixest referente ao 'start'.
     async def on_ready(self):
-       print(f"[Session] : O bot {self.user.name} está online.")
-
+       #Executar o evento on_start caso loaded esteja 'false'.
+       if not self.loaded:
+          await self.on_start()
+          print(f"[Session] : O bot {self.user.name} está online.")    
+    
     #Evento do Nixest referente a bloqueios de usuários, canais, checks entre outros.
     async def on_message(self, message):
        print(f'{message.guild.name} {message.author.name} {message.content}')
@@ -31,8 +55,8 @@ class Nixest(AutoShardedBot):
        ctx = await self.get_context(message)
        #Checar se o comando é valído, se o comando não estar em uma classe proibida, se o author é um admin.
        if not ctx.valid or ctx.command.cog_name in [] and not ctx.author.id in self.env.bot.admin:return
+       #Importar as informações do database pro context.
        ctx.gdb = await self.db.get_guild(ctx.guild.id)
-
        try:
           #Invocar comandos pelo contexto e poder manipular alguns eventos.
           await self.invoke(ctx)
