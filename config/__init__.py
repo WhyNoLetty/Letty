@@ -1,5 +1,5 @@
 #import's necessários
-from .base import Nixest
+from .base import Kinash
 from .data import env
 
 

@@ -1,3 +1,33 @@
 {
-  "say":{"none":"{emoji} **|** {ctx.prefix}{ctx.command} + algo para eu repetir."}
+  
+  
+  "help":{
+           "none":{
+                   "cmd":"{emoji} **|** Olá ``{author}``, eu não encontrei nenhum comando com o nome fornecido."
+                  },
+           
+           "meta":{
+                   "usage":"[Comando]",
+                   "description": "Lista detalhadamente todos os comandos da Nixest.",
+                   "example": [
+                               "config",
+                               "play"
+                              ]
+                  },
+           "name":"Comando {command}",
+           "usage":"{emoji} **Uso**:",
+           "description":"{emoji} **Descrição**:",
+           "aliase":"{emoji} **Alternativas**: ({total})",
+           "example":"{emoji} **Exemplos**: ({total})",
+
+           "suport":"Possuí alguma dúvida? Entre em nosso [servidor de suporte](link) e faça uma pergunta!"
+
+          },
+  "anime":{
+           "cancel":"Digite {value} para cancelar.",
+           "results":"Resultados da Busca",
+           "choose":"Digite o número correspondente ao anime que você deseja ver.\n{lista}",
+           "read":"... [Ler sinopse completa]({url})",
+           "info":"My Anime List ({type})"
+          }
 }    

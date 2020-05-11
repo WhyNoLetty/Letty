@@ -1,11 +1,12 @@
 #Import's necessários (List import).
 from discord.ext.commands import AutoShardedBot
 from discord.ext.translation import files
+from discord.ext.mylistanime import client
 from database import on_connect_db
-import os
+import os, discord
 
-#Classe da Nixest (Autoshared class).
-class Nixest(AutoShardedBot):
+#Classe da kinash (Autoshared class).
+class Kinash(AutoShardedBot):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         """
@@ -14,13 +15,16 @@ class Nixest(AutoShardedBot):
           self.env : Obter informações 'dict' da classe da parte 'env'como token, links, etc.
           self.db : Fornecer os dados para a conexão da database do bot como url, name, a variável do bot.
           self.lang : Puxar as tradução do bot como primária sendo português a primeira tradução
+          self.mal : Puxar a classe da api do myanimelist, e puxar as informações do anime.
         """
         self.loaded = False
         self.env = kwargs['env']
         self.db = on_connect_db(name=self.env.database.name, uri=self.env.database.url, bot=self)
         self.lang = files(source='pt_BR')
+        self.mal = client()
+        self.color = [discord.Colour.from_rgb(*self.env.bot.color[0]), discord.Colour.from_rgb(*self.env.bot.color[1])]
 
-    #Evento do Nixest para carregar o(s) plugin(s).
+    #Evento da kinash para carregar o(s) plugin(s).
     async def on_start(self):
         #Puxar todo os plugins de um directorio.
         plugins = [p[:-3] for p in os.listdir("plugins") if p.endswith(".py")]
@@ -40,7 +44,7 @@ class Nixest(AutoShardedBot):
         #Após carregar o(s) plugin(s) deixar a condição do loaded 'true'.
         self.loaded = True
     
-    #Evento do Nixest referente ao 'start'.
+    #Evento da kinash referente ao 'start'.
     async def on_ready(self):
        #Executar o evento on_start caso loaded esteja 'false'.
        if not self.loaded:
@@ -51,11 +55,11 @@ class Nixest(AutoShardedBot):
           print(f'[Language] : {len(self.lang.strings)} linguagem(s) carregada(s).')
           print(f"[Session] : O bot {self.user.name} está online.")    
     
-    #Evento do Nixest referente a bloqueios de usuários, canais, checks entre outros.
+    #Evento da kinash referente a bloqueios de usuários, canais, checks entre outros.
     async def on_message(self, message):
        #Checar se a mensagem não originou de um 'dm' ou se o modulo estar carregado.
        if not self.loaded or message.guild is None:return   
-       #Checar se a mensagem não se originou de um bot ou checar se o Nixest pode enviar comandos no canal.
+       #Checar se a mensagem não se originou de um bot ou checar se o kinash pode enviar comandos no canal.
        if message.author.bot or not message.channel.permissions_for(message.guild.me).send_messages:return
        #Puxar as informações da mensagem como comandos, valores, canais, servidor etc.
        ctx = await self.get_context(message)

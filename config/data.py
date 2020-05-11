@@ -10,5 +10,5 @@ def get(file):
     except Exception as e:
         print(e)
 
-#Dados da Nixest como token, secrete, prefix, etc.
+#Dados da Nixest como token, secret, prefix, etc.
 env = get("./json/config.json")

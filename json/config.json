@@ -1,10 +1,64 @@
 {
     "app":{
-          "token":"token do bot",
+          "token":"token",
           "secret":"secret do bot",
           "id":"id do bot"
          },
     "bot":{
-           "prefix":["rx."]
-          } 
+           "prefix":["k."],
+           "admin":["692492572878176348"],
+           "color":[[65, 57, 137], [119, 199, 199]],
+           "link":{
+                   "suport":"https://discord.gg/RmgTBYt",
+                   "twitch":"https://twitch.tv/kinash",
+                   "website":"www.kinash.xyz"
+                  },
+           "image":[
+                    {
+                     "path": "./image/avatar/1.png",
+                     "rgb": [[119, 199, 199], [119, 199, 199]]
+                    }
+                   ],
+           "presence":{
+                       "listening":[
+                                     "Alan Walker",
+                                     "Alok",
+                                     "Prefix: {prefix}",
+                                     "{prefix}help | ?? servers",
+                                     "{website}",
+                                     "Add me {website}"
+                                   ],
+                       "watching":[
+                                   "Rock in Rio",
+                                   "Tomorrowland",
+                                   "Lollapalooza",
+                                   "Prefix: {prefix}",
+                                   "{prefix}help | ?? servers",
+                                   "{website}",
+                                   "Add me {website}"
+                                  ],
+                       "streaming":[
+                                    "Music!",
+                                    "High Quality Music!",
+                                    "OSU!",
+                                    "Prefix: {prefix}",
+                                    "{prefix}help | ?? servers",
+                                    "{website}",
+                                    "Add me {website}"
+                                  ],
+                       "playing":[
+                                    "Music!",
+                                    "High Quality Music!",
+                                    "OSU!",
+                                    "Prefix: {prefix}",
+                                    "{prefix}help | ?? servers",
+                                    "{website}",
+                                    "Add me {website}"
+                                  ]                                        
+                    }
+            },     
+    "database":{
+                "name":"nixest",
+                "url":"mongodb+srv://user:password0@nixest-domain/test?retryWrites=true&w=majority"
+               } 
 }

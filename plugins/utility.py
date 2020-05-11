@@ -4,8 +4,8 @@ from discord.ext import commands
 
 #Classe do plugin 'Utilidade'
 class Utility(commands.Cog):
-    def __init__(self, nixest):
-        self.nixest = nixest
+    def __init__(self, kinash):
+        self.kinash = kinash
 
     #O primeiro comando 'say'
     @commands.command(aliases=['dizer'])
@@ -17,5 +17,5 @@ class Utility(commands.Cog):
 
                
 #Adicionar o plugin na lista.
-def setup(nixest):
-    nixest.add_cog(Utility(nixest))        
+def setup(kinash):
+    kinash.add_cog(Utility(kinash))        
