@@ -1,6 +1,6 @@
 {
     "app":{
-          "token":"token",
+          "token":"NzA0MzAwOTc4NDQyMDc2Mjc4.XqlxDA.VzJ8-ooHOMLcrBL0pCpjqvykIZs",
           "secret":"secret do bot",
           "id":"id do bot"
          },
@@ -11,11 +11,32 @@
            "link":{
                    "suport":"https://discord.gg/RmgTBYt",
                    "twitch":"https://twitch.tv/kinash",
-                   "website":"www.kinash.xyz"
+                   "website":"www.kinash.xyz",
+                   "discord":"https://discord.gg/RmgTBYt"
                   },
            "image":[
                     {
                      "path": "./image/avatar/1.png",
+                     "rgb": [[119, 199, 199], [119, 199, 199]]
+                    },
+                    {
+                     "path": "./image/avatar/2.png",
+                     "rgb": [[119, 199, 199], [119, 199, 199]]
+                    },
+                    {
+                     "path": "./image/avatar/3.png",
+                     "rgb": [[119, 199, 199], [119, 199, 199]]
+                    },    
+                    {
+                     "path": "./image/avatar/4.png",
+                     "rgb": [[119, 199, 199], [119, 199, 199]]
+                    },
+                    {
+                     "path": "./image/avatar/5.png",
+                     "rgb": [[119, 199, 199], [119, 199, 199]]
+                    },
+                    {
+                     "path": "./image/avatar/6.png",
                      "rgb": [[119, 199, 199], [119, 199, 199]]
                     }
                    ],
@@ -59,6 +80,6 @@
             },     
     "database":{
                 "name":"nixest",
-                "url":"mongodb+srv://user:password0@nixest-domain/test?retryWrites=true&w=majority"
+                "url":"mongodb+srv://mr-roxanne:D92725430@nixest-aaphv.mongodb.net/test?retryWrites=true&w=majority"
                } 
 }

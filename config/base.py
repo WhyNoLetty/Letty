@@ -5,17 +5,18 @@ from discord.ext.mylistanime import client
 from database import on_connect_db
 import os, discord
 
-#Classe da kinash (Autoshared class).
+#Classe da bot (Autoshared class).
 class Kinash(AutoShardedBot):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         """
          - Funções:
           self.load : Evitar de recarregar os modulos caso haja alguma queda.
-          self.env : Obter informações 'dict' da classe da parte 'env'como token, links, etc.
+          self.env : Obter informações 'dict' da classe da parte 'env' como token, links, etc.
           self.db : Fornecer os dados para a conexão da database do bot como url, name, a variável do bot.
           self.lang : Puxar as tradução do bot como primária sendo português a primeira tradução
           self.mal : Puxar a classe da api do myanimelist, e puxar as informações do anime.
+          self.color : Definir a cor dos embed.
         """
         self.loaded = False
         self.env = kwargs['env']
@@ -24,7 +25,7 @@ class Kinash(AutoShardedBot):
         self.mal = client()
         self.color = [discord.Colour.from_rgb(*self.env.bot.color[0]), discord.Colour.from_rgb(*self.env.bot.color[1])]
 
-    #Evento da kinash para carregar o(s) plugin(s).
+    #Evento para carregar o(s) plugin(s).
     async def on_start(self):
         #Puxar todo os plugins de um directorio.
         plugins = [p[:-3] for p in os.listdir("plugins") if p.endswith(".py")]
@@ -44,7 +45,7 @@ class Kinash(AutoShardedBot):
         #Após carregar o(s) plugin(s) deixar a condição do loaded 'true'.
         self.loaded = True
     
-    #Evento da kinash referente ao 'start'.
+    #Evento referente ao 'start'.
     async def on_ready(self):
        #Executar o evento on_start caso loaded esteja 'false'.
        if not self.loaded:
@@ -55,11 +56,11 @@ class Kinash(AutoShardedBot):
           print(f'[Language] : {len(self.lang.strings)} linguagem(s) carregada(s).')
           print(f"[Session] : O bot {self.user.name} está online.")    
     
-    #Evento da kinash referente a bloqueios de usuários, canais, checks entre outros.
+    #Evento referente a bloqueios de usuários, canais, checks entre outros.
     async def on_message(self, message):
        #Checar se a mensagem não originou de um 'dm' ou se o modulo estar carregado.
        if not self.loaded or message.guild is None:return   
-       #Checar se a mensagem não se originou de um bot ou checar se o kinash pode enviar comandos no canal.
+       #Checar se a mensagem não se originou de um bot ou checar se pode enviar comandos no canal.
        if message.author.bot or not message.channel.permissions_for(message.guild.me).send_messages:return
        #Puxar as informações da mensagem como comandos, valores, canais, servidor etc.
        ctx = await self.get_context(message)

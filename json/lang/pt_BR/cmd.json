@@ -1,20 +1,32 @@
 {
   
-  
   "help":{
+          "name":"Comando {cmd}",
+          "usage":"{emoji} **Uso** ",
+          "aliase":"{emoji} **Alternativas** ({total})",
+          "example":"{emoji} **Exemplos** ({total})",
+          "description":"{emoji} **Descrição**",
+          "helper":"Ajuda ao usuário",
+          "suport":"Possuí alguma dúvida? Entre em nosso [servidor de suporte]({link}) e faça uma pergunta!",
+          "meta":{
+                  "usage":"[Comando]",
+                  "description": "Lista detalhadamente todos os comandos da Nixest.",
+                  "example": [
+                              "config",
+                              "play",
+                              "test"
+                              ]
+                  }
+
+        },
+
+  "helsp":{
            "none":{
                    "cmd":"{emoji} **|** Olá ``{author}``, eu não encontrei nenhum comando com o nome fornecido."
                   },
            
-           "meta":{
-                   "usage":"[Comando]",
-                   "description": "Lista detalhadamente todos os comandos da Nixest.",
-                   "example": [
-                               "config",
-                               "play"
-                              ]
-                  },
-           "name":"Comando {command}",
+
+           "name":"",
            "usage":"{emoji} **Uso**:",
            "description":"{emoji} **Descrição**:",
            "aliase":"{emoji} **Alternativas**: ({total})",
