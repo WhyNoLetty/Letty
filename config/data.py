@@ -10,5 +10,8 @@ def get(file):
     except Exception as e:
         print(e)
 
-#Dados como token, secret, prefix, etc.
+#Carregar dos como token, secret, prefix, etc.
 env = get("./json/config.json")
+
+#Carregar os emojis
+emoji = get("./json/emoji.json")

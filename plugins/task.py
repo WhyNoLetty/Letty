@@ -25,12 +25,7 @@ class Task(commands.Cog):
     @tasks.loop(minutes=10)
     async def change_avatar(self):
     	try: 
-           #Puxar as informações do avatar e fazer um aleátorio com elas.
-           info = random.choice(self.kinash.env.bot.image)
-           #Ler o avatar e converter.
-           avatar = open(info.path, 'rb').read()
-           #Trocar as cores do embed.
-           self.kinash.color = [discord.Colour.from_rgb(*info.rgb[0]), discord.Colour.from_rgb(*info.rgb[1])]
+           avatar = open(f"./image/avatar/{random.randint(1, 2)}.png", 'rb').read()
            #Trocar o avatar do bot.
            await self.kinash.user.edit(avatar=avatar)
     	except Exception as e:

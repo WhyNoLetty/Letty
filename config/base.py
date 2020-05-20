@@ -13,6 +13,7 @@ class Kinash(AutoShardedBot):
          - Funções:
           self.load : Evitar de recarregar os modulos caso haja alguma queda.
           self.env : Obter informações 'dict' da classe da parte 'env' como token, links, etc.
+          self.emoji : Obter os emojis do bot.
           self.db : Fornecer os dados para a conexão da database do bot como url, name, a variável do bot.
           self.lang : Puxar as tradução do bot como primária sendo português a primeira tradução
           self.mal : Puxar a classe da api do myanimelist, e puxar as informações do anime.
@@ -20,10 +21,12 @@ class Kinash(AutoShardedBot):
         """
         self.loaded = False
         self.env = kwargs['env']
+        self.emoji = kwargs['emoji']
         self.db = on_connect_db(name=self.env.database.name, uri=self.env.database.url, bot=self)
         self.lang = files(source='pt_BR')
         self.mal = client()
         self.color = [discord.Colour.from_rgb(*self.env.bot.color[0]), discord.Colour.from_rgb(*self.env.bot.color[1])]
+        print(self.emoji)
 
     #Evento para carregar o(s) plugin(s).
     async def on_start(self):
@@ -58,6 +61,7 @@ class Kinash(AutoShardedBot):
     
     #Evento referente a bloqueios de usuários, canais, checks entre outros.
     async def on_message(self, message):
+       print(message.content)
        #Checar se a mensagem não originou de um 'dm' ou se o modulo estar carregado.
        if not self.loaded or message.guild is None:return   
        #Checar se a mensagem não se originou de um bot ou checar se pode enviar comandos no canal.

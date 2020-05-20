@@ -1,6 +1,6 @@
 #import's necessários
 from .base import Kinash
-from .data import env
+from .data import env, emoji, get
 
 
 """
