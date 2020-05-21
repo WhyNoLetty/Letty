@@ -1,7 +1,13 @@
 {
   
-  "make_emoji":{"create":"{self.emoji.add} **{ctx.author.name}**, foram criado(s) ``{emojis}`` novo(s) para a ``{ctx.me.name}``."},
-  
+  "make_emoji":{
+                "create":"{self.emoji.add} **{ctx.author.name}**, foram criado(s) ``{emojis}`` novo(s)."
+               },
+
+  "module":{
+            "success":"{self.emoji.ok} **{ctx.author.name}**, o modulo ``{module}`` foi ``{type}`` com sucesso!"
+          },
+
   "help":{
           "name":"Comando {cmd}",
           "usage":"{emoji} **Uso** ",

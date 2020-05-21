@@ -1,3 +1,14 @@
 {
-  "make_emoji":{"create":"{self.emoji.error} **{ctx.author.name}**, ocorreu um erro ao tentar criar novo(s) para a ``{ctx.me.name}``.\n```py\n{e}```"}
+
+  "make_emoji":{
+                "error":"{self.emoji.error} **{ctx.author.name}**, ocorreu um erro ao tentar criar novo(s).\n```py\n{e}```"
+               },
+  
+  "module":{
+            "type_no_valid":"{self.emoji.cancel} **{ctx.author.name}**, a função não é valída.\n``-r`` : para recarregar o modulo.\n``-l`` : para carregar o modulo.\n``-u`` : para descarregar o modulo.",
+            "module_none":"{self.emoji.cancel} **{ctx.author.name}**, forneça um modulo válido para a execução da função {type}.",
+            "error":"{self.emoji.error} **{ctx.author.name}**, ocorreu um erro ao tentar {module} o modulo.\n```py\n{e}```"
+           }
+
+
 }    
