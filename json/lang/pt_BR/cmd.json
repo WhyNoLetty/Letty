@@ -1,5 +1,7 @@
 {
   
+  "make_emoji":{"create":"{self.emoji.add} **{ctx.author.name}**, foram criado(s) ``{emojis}`` novo(s) para a ``{ctx.me.name}``."},
+  
   "help":{
           "name":"Comando {cmd}",
           "usage":"{emoji} **Uso** ",

@@ -1,4 +1,3 @@
 {
-  "exit":"Sair",
-  "unknown":"Desconhecido"
+  "make_emoji":{"create":"{self.emoji.error} **{ctx.author.name}**, ocorreu um erro ao tentar criar novo(s) para a ``{ctx.me.name}``.\n```py\n{e}```"}
 }    

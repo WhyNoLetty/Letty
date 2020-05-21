@@ -26,7 +26,6 @@ class Kinash(AutoShardedBot):
         self.lang = files(source='pt_BR')
         self.mal = client()
         self.color = [discord.Colour.from_rgb(*self.env.bot.color[0]), discord.Colour.from_rgb(*self.env.bot.color[1])]
-        print(self.emoji)
 
     #Evento para carregar o(s) plugin(s).
     async def on_start(self):
@@ -61,7 +60,6 @@ class Kinash(AutoShardedBot):
     
     #Evento referente a bloqueios de usuários, canais, checks entre outros.
     async def on_message(self, message):
-       print(message.content)
        #Checar se a mensagem não originou de um 'dm' ou se o modulo estar carregado.
        if not self.loaded or message.guild is None:return   
        #Checar se a mensagem não se originou de um bot ou checar se pode enviar comandos no canal.
