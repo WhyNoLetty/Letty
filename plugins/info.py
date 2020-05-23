@@ -19,7 +19,7 @@ class Utility(commands.Cog):
        #Puxar o meta com as traduções do evento.
        meta = ctx.lang(f'cmd.{name}.meta') or {}
        #descrição do evento.
-       description = meta.get('description', ctx.lang('cms.no_supplied'))
+       description = meta.get('description', ctx.lang('cms.no_defined'))
        #Como usar o evento.
        usage = meta.get('usage')
        #Exemplos de como usar o evento.
@@ -28,7 +28,7 @@ class Utility(commands.Cog):
        em = discord.Embed(color=self.kinash.color[0], title=ctx.lang('cmd.help.name', {"cmd": command.name.title()}))
        em.set_thumbnail(url=self.kinash.user.avatar_url)
        em.set_author(name=ctx.lang('cmd.help.helper'), icon_url=ctx.author.avatar_url)
-       em.add_field(name=ctx.lang('cmd.help.aliase', {"emoji":"🎨", "total":len(aliase)}), value=' | '.join([f'`{a}`' for a in aliase]) or f"``{ctx.lang('cms.no_supplied')}``")
+       em.add_field(name=ctx.lang('cmd.help.aliase', {"emoji":"🎨", "total":len(aliase)}), value=' | '.join([f'`{a}`' for a in aliase]) or f"``{ctx.lang('cms.no_defined')}``")
        em.add_field(name=ctx.lang('cmd.help.usage', {"emoji":"🎨"}), value=f'`{invocation}{" " + usage if usage else ""}`')
 
        if hasattr(command, 'commands'):
@@ -55,7 +55,7 @@ class Utility(commands.Cog):
         if args:
             command = self.kinash.get_command(args)
             if not command or command.hidden:
-                return await ctx.send(ctx.lang('cmd.help.none.cmd', {"author": ctx.author.name, "emoji": "?"}))
+                return await ctx.send(ctx.lang('err.help.none', {"self":self.kinash, "ctx": ctx}))
             
             return await self.show_cmd(ctx, command)
         

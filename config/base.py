@@ -5,6 +5,7 @@ from discord.ext.mylistanime import client
 from database import on_connect_db
 import os, discord
 
+
 #Classe da bot (Autoshared class).
 class Kinash(AutoShardedBot):
     def __init__(self, *args, **kwargs):
@@ -14,6 +15,7 @@ class Kinash(AutoShardedBot):
           self.load : Evitar de recarregar os modulos caso haja alguma queda.
           self.env : Obter informações 'dict' da classe da parte 'env' como token, links, etc.
           self.emoji : Obter os emojis do bot.
+          self.emoji : Obter os link de download do bot.
           self.db : Fornecer os dados para a conexão da database do bot como url, name, a variável do bot.
           self.lang : Puxar as tradução do bot como primária sendo português a primeira tradução
           self.mal : Puxar a classe da api do myanimelist, e puxar as informações do anime.
@@ -22,6 +24,7 @@ class Kinash(AutoShardedBot):
         self.loaded = False
         self.env = kwargs['env']
         self.emoji = kwargs['emoji']
+        self.download = kwargs['download']
         self.db = on_connect_db(name=self.env.database.name, uri=self.env.database.url, bot=self)
         self.lang = files(source='pt_BR')
         self.mal = client()

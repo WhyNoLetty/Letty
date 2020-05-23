@@ -5,5 +5,6 @@
   "reload":"recarregar",
   "loaded":"carregado",
   "unloaded":"descarregado",
-  "reloaded":"recarregado"
+  "reloaded":"recarregado",
+  "no_defined":"Não definida(o)"
 }    

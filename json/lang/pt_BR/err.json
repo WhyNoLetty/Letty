@@ -8,7 +8,12 @@
             "type_no_valid":"{self.emoji.cancel} **{ctx.author.name}**, a função não é valída.\n``-r`` : para recarregar o modulo.\n``-l`` : para carregar o modulo.\n``-u`` : para descarregar o modulo.",
             "module_none":"{self.emoji.cancel} **{ctx.author.name}**, forneça um modulo válido para a execução da função {type}.",
             "error":"{self.emoji.error} **{ctx.author.name}**, ocorreu um erro ao tentar {module} o modulo.\n```py\n{e}```"
-           }
+           },
 
-
+  "eval":{
+          "error":"{self.emoji.error} **{ctx.author.name}**, ocorreu um erro ao tentar código.\nEntrada : \n```py\n{in}```Saída : \n```py\n{out.__class__.__name__} : {out}```"
+           },
+  "help":{
+  	      "none":"{self.emoji.cancel} **{ctx.author.name}**, não foi encontrado nenhum comando com o nome fornecido."
+  	     }
 }    

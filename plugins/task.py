@@ -1,6 +1,9 @@
 #Import's necessários (List import).
 import discord, random, datetime
 from discord.ext import commands, tasks
+from config import get_aio, get
+from io import BytesIO
+import asyncio
 
 #Classe do plugin 'Task'
 class Task(commands.Cog):
@@ -21,14 +24,59 @@ class Task(commands.Cog):
         self.status = [discord.Status.online,discord.Status.dnd,discord.Status.idle]
         #self.tasks = [('change_presence', self.change_presence.start()),('change_avatar', self.change_avatar.start()),]
     
+    #Gerar gerar o url e converter o url em bytes.
+    async def icon_data(self, data, color):
+      data = await get_aio(f"https://img.icons8.com/{data['type']}/{data['size']}/{color}/{data['real']}.png", res_method="read")
+      return data
+    
+    #Evento pra quando executar a ação caso demorar gerar um erro.
+    async def event_coro(self, coro):
+       try:
+           #Converter uma função não asyncronizada em uma.
+           coro = await asyncio.wait_for(coro, timeout=10.0)
+      #Caso ouver algum erro na execução em relação a demora.
+       except asyncio.TimeoutError:
+           return None
+      #Caso ouver algum erro na execução em relação a não encontrado ou algum erro.
+       except (discord.NotFound, discord.HTTPException) as e:
+           return False
+       else:
+         #retornar a função.
+         return coro    
+    
+    #Criar um emoji no servidor
+    async def create_emoji(self, guild, name, bio):
+       return await self.event_coro(guild.create_custom_emoji(name=name, image=bio, reason=None))     
+    
     #Task para trocar o avatar e as cores do embed.
     @tasks.loop(minutes=10)
     async def change_avatar(self):
     	try: 
-           avatar = open(f"./image/avatar/{random.randint(1, 2)}.png", 'rb').read()
+           #Puxar as informações do avatar e fazer um aleátorio com elas.
+           info = random.choice(self.kinash.env.bot.image)
+           #Ler o avatar e converter.
+           avatar = open(info.path, 'rb').read()
+           #Trocar as cores do embed.
+           self.kinash.color = [discord.Colour.from_rgb(*info.rgb[0]), discord.Colour.from_rgb(*info.rgb[1])]
            #Trocar o avatar do bot.
            await self.kinash.user.edit(avatar=avatar)
-    	except Exception as e:
+           #Puxar os emojis do json.
+           emoji_data = get("./json/down.json", simple=True)
+           for guild in self.kinash.env.bot.emoji:    
+              guild = await self.kinash.fetch_guild(guild) 
+              #Pegar todo os emojis da guild é passar por um for.
+              for emoji in await guild.fetch_emojis():
+                 #Deletar o emoji.
+                 await emoji.delete()
+                 #Executar a função de criar emoji e pegar o código.
+                 emoji = await self.create_emoji(guild, emoji.name,(await self.icon_data(emoji_data[emoji.name], 'FF00FF')))
+                 #Trocar o code do emoji antigo pelo novo.
+                 emoji_data[emoji.name].update(code=f'{emoji}')
+           #Abrir o arquivo down.json
+           with open('./json/down.json', 'w+') as jsonf:
+                #Inserir todo os emojis no json e salvar-los e depos indenta-los.
+                json.dump(emoji_data, jsonf, indent=4, sort_keys=True)
+      except Exception as e:
         #Caso ouver algum erro na execução da task.
     		print(e)
     

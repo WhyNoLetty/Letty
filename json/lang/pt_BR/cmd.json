@@ -6,8 +6,12 @@
 
   "module":{
             "success":"{self.emoji.ok} **{ctx.author.name}**, o modulo ``{module}`` foi ``{type}`` com sucesso!"
-          },
-
+           },
+  
+  "eval":{
+          "success":"{self.emoji.ok} **{ctx.author.name}**, o código foi executado com sucesso!\nEntrada : \n```py\n{in}```Saída : \n```py\n{out}```"
+         },
+  
   "help":{
           "name":"Comando {cmd}",
           "usage":"{emoji} **Uso** ",
