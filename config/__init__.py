@@ -1,5 +1,5 @@
 #import's necessários
-from .base import Kinash
+from .base import Shiro
 from .data import env, emoji, get
 from .http import get_aio, post_aio
 

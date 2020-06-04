@@ -5,8 +5,8 @@ from asyncio import TimeoutError as TimeoutException
 
 #Classe do plugin 'Anime'
 class Anime(commands.Cog):
-    def __init__(self, kinash):
-        self.kinash = kinash
+    def __init__(self, shiro):
+        self.shiro = shiro
 
     #O comando 'anime' pra puxar as info de animes.
     @commands.command()
@@ -16,7 +16,7 @@ class Anime(commands.Cog):
         if not type.lower() in ['anime', 'manga']: return await ctx.send(ctx.lang("cmd.anime.string.type",{'emoji':'⁉️'}))
         if query is None: return await ctx.send(ctx.lang("cmd.anime.string.query",{'emoji':'⁉️'}))
         
-        anime = await self.kinash.mal.search(type, query, limit=8)
+        anime = await self.shiro.mal.search(type, query, limit=8)
         if len(anime) == 0:
            return await ctx.send('sem anime')
 
@@ -25,7 +25,7 @@ class Anime(commands.Cog):
 
         em = discord.Embed(color=0x363651,description=ctx.lang("cmd.anime.choose", {'lista':'\n'.join(lista)}))\
         .set_author(name=ctx.lang('cmd.anime.results'),icon_url=ctx.author.avatar_url)\
-        .set_thumbnail(url=self.kinash.user.avatar_url)\
+        .set_thumbnail(url=self.shiro.user.avatar_url)\
         .set_footer(text=ctx.lang('cmd.anime.cancel', {'value':cancel}))
         q = await ctx.send(content=ctx.author.mention, embed=em)
 
@@ -33,7 +33,7 @@ class Anime(commands.Cog):
             return m.channel.id == q.channel.id and m.author.id == ctx.author.id and (m.content.isdecimal() and 0 < int(m.content) <= len(anime) or m.content.lower() == cancel)
 
         try:
-            a = await self.kinash.wait_for('message', timeout=120, check=check)
+            a = await self.shiro.wait_for('message', timeout=120, check=check)
         except TimeoutException:
             a = None
 
@@ -54,5 +54,5 @@ class Anime(commands.Cog):
         await q.edit(content=None, embed=em)
 
 #Adicionar o plugin na lista.
-def setup(kinash):
-    kinash.add_cog(Anime(kinash))        
+def setup(shiro):
+    shiro.add_cog(Anime(shiro))        

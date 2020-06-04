@@ -7,7 +7,7 @@ import os, discord
 
 
 #Classe da bot (Autoshared class).
-class Kinash(AutoShardedBot):
+class Shiro(AutoShardedBot):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         """

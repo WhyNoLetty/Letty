@@ -6,12 +6,12 @@ from discord.ext.commands.errors import *
 
 #Classe do plugin 'Event'
 class Event(commands.Cog):
-    def __init__(self, kinash):
+    def __init__(self, shiro):
         """
          - Funções:
-          self.kinash : Puxar as informações do bot pela classe Kinash.
+          self.shiro : Puxar as informações do bot pela classe shiro.
         """
-        self.kinash = kinash
+        self.shiro = shiro
 
 #    @commands.Cog.listener()
  #   async def on_command_error(self, ctx, e):
@@ -23,8 +23,8 @@ class Event(commands.Cog):
  #       if isinstance(e, (UserInputError)):
   #          usage = (ctx.lang(f'cmd.{".".join(ctx.command.qualified_name.split())}.meta') or {}).get('usage')
    #         usage = ctx.prefix + (ctx.command.parent.name + ' ' if ctx.command.parent else '') + ctx.invoked_with + (' ' + usage if usage else '')
-    #        await ctx.send(ctx.lang('err.error.input', {"ctx":ctx,"self":self.kinash, "usage": usage}))
+    #        await ctx.send(ctx.lang('err.error.input', {"ctx":ctx,"self":self.shiro, "usage": usage}))
 
 #Adicionar o plugin na lista.
-def setup(kinash):
-    kinash.add_cog(Event(kinash))        
+def setup(shiro):
+    shiro.add_cog(Event(shiro))        

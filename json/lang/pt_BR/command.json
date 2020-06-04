@@ -1,0 +1,23 @@
+{
+    "help":{
+            "name":"Comando **{name}**",
+            "helper":"Ajuda ao usuário",
+            "aliase":"{self.emoji.hiragana.code} **Alternativas**: ({total})",
+            "usage":"{self.emoji.equal.code} **Uso**:",
+            "perm":"{self.emoji.key.code} **Permissões necessárias**:",
+            "example":"{self.emoji.east.code} **Exemplos**: ({total})",
+            "description":"{self.emoji.document.code} **Descrição**:",
+            "suport": "Entre em nosso [servidor de suporte]({self.env.bot.link.website}/discord) se precisar de ajuda!",
+            "link":"[**Servidor de suporte**]({self.env.bot.link.website}/discord) | [**Adicionar**]({self.env.bot.link.website}/add) | [**Doar**]({self.env.bot.link.website}/donate) | [**Votar**]({self.env.bot.link.website}/vote) | [**Github**]({self.env.bot.link.website}/github)"
+            },
+
+    "eval":{
+            "success":"{self.emoji.ok.code} **{ctx.author.name}**, o código foi executado com sucesso!\n```py\n{out}```"
+           },         
+   
+   "module":{
+            "success":"{self.emoji.ok.code} **{ctx.author.name}**, o modulo ``{module}`` foi ``{type}`` com sucesso!"
+            }
+
+}
+

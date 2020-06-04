@@ -7,19 +7,19 @@ import asyncio
 
 #Classe do plugin 'Task'
 class Task(commands.Cog):
-    def __init__(self, kinash):
+    def __init__(self, shiro):
         """
          - Funções:
-          self.kinash : Puxar as informações do bot pela classe Kinash.
+          self.shiro : Puxar as informações do bot pela classe shiro.
           self.bot : Obter informações 'dict' da classe da parte 'env' com informações do bot
           self.message : Obter informações 'dict' da classe da parte 'env' com informações da presence do bot e converter-las em uma 'dict'
           self.presence : Colocar toda as atividades (jogando, ouvindo, etc) de presence do bot em uma dict.
           self.status : Colocar todo os status (online, afk, não pertube) da presence do bot em uma dict.
           self.presence : Colocar toda as tasks (funções automatizas) em uma dict.
         """
-        self.kinash = kinash
-        self.bot = self.kinash.env.bot           
-        self.message = {'listening':self.kinash.env.bot.presence.listening,'watching':self.kinash.env.bot.presence.watching,'streaming':self.kinash.env.bot.presence.streaming,'playing':self.kinash.env.bot.presence.playing}
+        self.shiro = shiro
+        self.bot = self.shiro.env.bot           
+        self.message = {'listening':self.shiro.env.bot.presence.listening,'watching':self.shiro.env.bot.presence.watching,'streaming':self.shiro.env.bot.presence.streaming,'playing':self.shiro.env.bot.presence.playing}
         self.presence = [discord.ActivityType.listening,discord.ActivityType.watching,discord.ActivityType.streaming,discord.ActivityType.playing]
         self.status = [discord.Status.online,discord.Status.dnd,discord.Status.idle]
         self.emoji = get("./json/emoji.json", simple=True)
@@ -56,15 +56,15 @@ class Task(commands.Cog):
         #Obter os emojis do bot.
         emoji_data = get("./json/emoji.json", simple=True)
         #Puxar todos os id's das guild quem tem os emojis do bot
-        for guild in self.kinash.env.bot.emoji:    
+        for guild in self.shiro.env.bot.emoji:    
           #Puxar as informações da guild, canais, emojis, cargos etc.
-          guild = await self.kinash.fetch_guild(guild) 
+          guild = await self.shiro.fetch_guild(guild) 
           #obter todo os emojis da guild e passar por um for.
           for emoji in await guild.fetch_emojis():
               #Obter as informações do emoji
               data = emoji_data[emoji.name]
               #Criar o emoji em bytes.
-              icon = await self.icon_data(data, self.kinash)
+              icon = await self.icon_data(data, self.shiro)
               #Deletar o emoji.
               await emoji.delete()
               #Criar um emoji novo com a image.
@@ -76,7 +76,7 @@ class Task(commands.Cog):
            #Inserir todo os emojis no json e salvar-los e depos indenta-los.
            json.dump(emoji_data, jsonf, indent=4, sort_keys=True)
         #Inserir os novos emojis na classe pro bot.             
-        self.kinash.emoji = get("./json/emoji.json")
+        self.shiro.emoji = get("./json/emoji.json")
         await ctx.send("ok")
 
     #Task para trocar o avatar e as cores do embed.
@@ -84,23 +84,23 @@ class Task(commands.Cog):
     async def change_avatar(self):
        try: 
            #Puxar as informações do avatar e fazer um aleátorio com elas.
-           info = random.choice(self.kinash.env.bot.image)
+           info = random.choice(self.shiro.env.bot.image)
            #Ler o avatar e converter.
            avatar = open(info.path, 'rb').read()
            #Trocar as cores do embed.
-           self.kinash.color = [discord.Colour.from_rgb(*info.rgb[0]), discord.Colour.from_rgb(*info.rgb[1]), info.rgb[2]]
+           self.shiro.color = [discord.Colour.from_rgb(*info.rgb[0]), discord.Colour.from_rgb(*info.rgb[1]), info.rgb[2]]
            #Trocar o avatar do bot.
-           #await self.kinash.user.edit(avatar=avatar)
+           #await self.shiro.user.edit(avatar=avatar)
            #Puxar os emojis do json.
            emoji_data = get("./json/emoji.json", simple=True)
-           for guild in self.kinash.env.bot.emoji:    
-              guild = await self.kinash.fetch_guild(guild) 
+           for guild in self.shiro.env.bot.emoji:    
+              guild = await self.shiro.fetch_guild(guild) 
               #Pegar todo os emojis da guild é passar por um for.
               for emoji in await guild.fetch_emojis():
                  #Deletar o emoji.
                  await emoji.delete()
                  #Executar a função de criar emoji e pegar o código.
-                 emoji = await self.create_emoji(guild, emoji.name,(await self.icon_data(emoji_data[emoji.name], self.kinash.color[2])))
+                 emoji = await self.create_emoji(guild, emoji.name,(await self.icon_data(emoji_data[emoji.name], self.shiro.color[2])))
                  #Trocar o code do emoji antigo pelo novo.
                  emoji_data[emoji.name].update(code=f'{emoji}')
            
@@ -109,7 +109,7 @@ class Task(commands.Cog):
                 #Inserir todo os emojis no json e salvar-los e depos indenta-los.
                 json.dump(emoji_data, jsonf, indent=4, sort_keys=True)
            
-           self.kinash.emoji = get("./json/emoji.json")
+           self.shiro.emoji = get("./json/emoji.json")
        
        except Exception as e:
         #Caso ouver algum erro na execução da task.
@@ -120,18 +120,18 @@ class Task(commands.Cog):
     async def change_presence(self):
       try:
         #Passar todos os shard do bot no 'for', e após passar usar o 'try' para executar a mudança do presence.
-        for shard in self.kinash.shards:
+        for shard in self.shiro.shards:
             #Puxar uma atividade aleatoria da presence (jogando, ouvindo etc)
             activity = random.choice(self.presence)
             #Puxar uma messagem aleátoria  da presence.
             message = random.choice(self.message[activity.name]).format(website=self.bot.link.website, prefix=self.bot.prefix[0])
             #Definir o presence.
-            await self.kinash.change_presence(activity=discord.Activity(type=activity, name=message + f' [{shard}]',url=self.bot.link.twitch), shard_id=shard, status=random.choice(self.status))
+            await self.shiro.change_presence(activity=discord.Activity(type=activity, name=message + f' [{shard}]',url=self.bot.link.twitch), shard_id=shard, status=random.choice(self.status))
       except Exception as e:
         #Caso ouver algum erro na execução da task.
         print(e)
 
 
 #Adicionar o plugin na lista.
-def setup(kinash):
-    kinash.add_cog(Task(kinash))        
+def setup(shiro):
+    shiro.add_cog(Task(shiro))        
