@@ -1,0 +1,39 @@
+{
+
+  "help":{
+          "usage":"<Comando>",
+          "description": "Lista detalhadamente todos os comandos do bot.",
+          "example": [
+                      "play",
+                      "anime",
+                      "youtube"
+                     ],
+          "perm":[
+          	      {"text":"embed_links", "user":"1"}
+          	     ]
+         },
+  "module":{
+            "usage":"[-r|-u|-l] <Modulo>",
+            "description": "Executar uma função especifica em um modulo do bot.",
+            "example": [
+                        "music",
+                        "anime",
+                        "task"
+                       ],
+          "perm":[
+          	      {"text":"administrator", "user":"3"}
+          	     ]
+         },
+  "eval":{
+          "usage":"<Comando>",
+          "description": "Lista detalhadamente todos os comandos do bot.",
+          "example": [
+                      "len(ctx.guild.members)"
+                     ],
+          "perm":[
+          	      {"text":"administrator", "user":"3"}
+          	     ]
+         }
+
+
+}    

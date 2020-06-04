@@ -15,7 +15,6 @@ class Kinash(AutoShardedBot):
           self.load : Evitar de recarregar os modulos caso haja alguma queda.
           self.env : Obter informações 'dict' da classe da parte 'env' como token, links, etc.
           self.emoji : Obter os emojis do bot.
-          self.emoji : Obter os link de download do bot.
           self.db : Fornecer os dados para a conexão da database do bot como url, name, a variável do bot.
           self.lang : Puxar as tradução do bot como primária sendo português a primeira tradução
           self.mal : Puxar a classe da api do myanimelist, e puxar as informações do anime.
@@ -24,11 +23,10 @@ class Kinash(AutoShardedBot):
         self.loaded = False
         self.env = kwargs['env']
         self.emoji = kwargs['emoji']
-        self.download = kwargs['download']
         self.db = on_connect_db(name=self.env.database.name, uri=self.env.database.url, bot=self)
         self.lang = files(source='pt_BR')
         self.mal = client()
-        self.color = [discord.Colour.from_rgb(*self.env.bot.color[0]), discord.Colour.from_rgb(*self.env.bot.color[1])]
+        self.color = [discord.Colour.from_rgb(*self.env.bot.color[0]), self.env.bot.color[1]]
 
     #Evento para carregar o(s) plugin(s).
     async def on_start(self):

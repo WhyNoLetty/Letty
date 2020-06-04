@@ -1,6 +1,6 @@
 #import's necessários
 from .base import Kinash
-from .data import env, emoji, get, download
+from .data import env, emoji, get
 from .http import get_aio, post_aio
 
 

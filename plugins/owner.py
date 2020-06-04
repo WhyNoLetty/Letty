@@ -33,29 +33,26 @@ class Onwer(commands.Cog, command_attrs=dict(hidden=True)):
           await ctx.send(ctx.lang('err.eval.error', {"self":self.kinash, "in":code, "out":e, "ctx":ctx}))
 
     #Recarregar, descarregar, carregar modulos do bot.
-    @commands.command(name='module')
+    @commands.command(name='module', aliases=['oi', 'test', 'gg'])
     @commands.is_owner()
-    async def _module(self, ctx, type=None, *, module=None):
+    async def _module(self, ctx, type, *, module):
        try:
            #Verificar se a função para executar no modulo é valída.
            if not type.lower() in ['-r', '-u', '-l']:
               return await ctx.send(ctx.lang('err.module.type_no_valid', {"self":self.kinash, "ctx":ctx}))
-           #Verificar se o modulo é valido.
-           if module is None:
-              return await ctx.send(ctx.lang('err.module.module_none', {"self":self.kinash, "type":ctx.lang(f'cms.{self.module[type]}'), "ctx":ctx}))
            if type.lower() == '-r':
               #Recarregar o modulo.
-              self.kinash.reload_extension(f'plugins.{module}')
+              self.kinash.reload_extension(f'plugins.{".".join(module)}')
            elif type.lower() == '-u':
                 #Descarregar o modulo.
-                self.kinash.unload_extension(f'plugins.{module}')
+                self.kinash.unload_extension(f'plugins.{".".join(module)}')
            else:
              #Caregar o modulo.
-             self.kinash.load_extension(f'plugins.{module}')
+             self.kinash.load_extension(f'plugins.{".".join(module)}')
            await ctx.send(ctx.lang('cmd.module.success', {"self":self.kinash, "module":module, "type":ctx.lang(f'cms.{self.module[type]}ed'), "ctx":ctx}))
        except Exception as e:
            #Caso ouver algum erro na execução do comando.
-           await ctx.send(ctx.lang('err.module.error', {"self":self.kinash, "e":e, "module":module, "type":ctx.lang(f'cms.{self.module[type]}'), "ctx":ctx}))
+           await ctx.send(ctx.lang('err.module.error', {"self":self.kinash, "e":e, "module":module, "type":ctx.lang(f'cms.{self.module[type]}ed'), "ctx":ctx}))
 
     #Criar emojis para o bot.
     #@commands.command(name='make_emoji')

@@ -1,57 +1,28 @@
 {
   
-  "make_emoji":{
-                "create":"{self.emoji.add} **{ctx.author.name}**, foram criado(s) ``{emojis}`` novo(s)."
-               },
-
-  "module":{
-            "success":"{self.emoji.ok} **{ctx.author.name}**, o modulo ``{module}`` foi ``{type}`` com sucesso!"
-           },
-  
   "eval":{
-          "success":"{self.emoji.ok} **{ctx.author.name}**, o código foi executado com sucesso!\nEntrada : \n```py\n{in}```Saída : \n```py\n{out}```"
-         },
-  
+          "success":"{self.emoji.ok.code} **{ctx.author.name}**, o código foi executado com sucesso!\nEntrada : \n```py\n{in}```Saída : \n```py\n{out}```"
+         },         
+   "module":{
+            "success":"{self.emoji.ok.code} **{ctx.author.name}**, o modulo ``{module}`` foi ``{type}`` com sucesso!"
+            },
   "help":{
-          "name":"Comando {cmd}",
-          "usage":"{emoji} **Uso** ",
-          "aliase":"{emoji} **Alternativas** ({total})",
-          "example":"{emoji} **Exemplos** ({total})",
-          "description":"{emoji} **Descrição**",
+          "name":"Comando **{name}**",
           "helper":"Ajuda ao usuário",
-          "suport":"Possuí alguma dúvida? Entre em nosso [servidor de suporte]({link}) e faça uma pergunta!",
-          "meta":{
-                  "usage":"[Comando]",
-                  "description": "Lista detalhadamente todos os comandos da Nixest.",
-                  "example": [
-                              "config",
-                              "play",
-                              "test"
-                              ]
-                  }
+          "aliase":"{self.emoji.hiragana.code} **Alternativas**: ({total})",
+          "usage":"{self.emoji.equal.code} **Uso**:",
+          "perm":"{self.emoji.key.code} **Permissões necessárias**:",
+          "example":"{self.emoji.east.code} **Exemplos**: ({total})",
+          "description":"{self.emoji.document.code} **Descrição**:",
+          "suport": "Entre em nosso [servidor de suporte]({self.env.bot.link.website}/discord) se precisar de ajuda!",
+          "link":"[**Servidor de suporte**]({self.env.bot.link.website}/discord) | [**Adicionar**]({self.env.bot.link.website}/add) | [**Doar**]({self.env.bot.link.website}/donate) | [**Votar**]({self.env.bot.link.website}/vote) | [**Github**]({self.env.bot.link.website}/github)",
+          "category":{
+                      "anime":"{self.emoji.manga.code} **Anime**: ({total})",
+                      "utility":"{self.emoji.service.code} **Útilidade**: ({total})",
+                      "onwer":"{self.emoji.maintenance.code} **Dono**: ({total})",
+                      "task":"{self.emoji.maintenance.code} **Dono**: ({total})"
+                     }         
+        }
 
-        },
+}
 
-  "helsp":{
-           "none":{
-                   "cmd":"{emoji} **|** Olá ``{author}``, eu não encontrei nenhum comando com o nome fornecido."
-                  },
-           
-
-           "name":"",
-           "usage":"{emoji} **Uso**:",
-           "description":"{emoji} **Descrição**:",
-           "aliase":"{emoji} **Alternativas**: ({total})",
-           "example":"{emoji} **Exemplos**: ({total})",
-
-           "suport":"Possuí alguma dúvida? Entre em nosso [servidor de suporte](link) e faça uma pergunta!"
-
-          },
-  "anime":{
-           "cancel":"Digite {value} para cancelar.",
-           "results":"Resultados da Busca",
-           "choose":"Digite o número correspondente ao anime que você deseja ver.\n{lista}",
-           "read":"... [Ler sinopse completa]({url})",
-           "info":"My Anime List ({type})"
-          }
-}    

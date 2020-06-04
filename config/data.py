@@ -19,5 +19,3 @@ env = get("./json/config.json")
 #Carregar os emojis
 emoji = get("./json/emoji.json")
 
-#Carregar os emojis
-download = get("./json/down.json")

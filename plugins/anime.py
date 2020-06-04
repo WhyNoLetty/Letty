@@ -7,11 +7,6 @@ from asyncio import TimeoutError as TimeoutException
 class Anime(commands.Cog):
     def __init__(self, kinash):
         self.kinash = kinash
-   
-    @commands.command(name='reload', aliases=['rl'])
-    async def _reload(self, ctx, plugin):
-        self.kinash.reload_extension('plugins.' + plugin)
-    
 
     #O comando 'anime' pra puxar as info de animes.
     @commands.command()

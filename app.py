@@ -1,5 +1,5 @@
 #import's necessários
-from config import Kinash, env, emoji, download
+from config import Kinash, env, emoji
 import discord
 
 #Definir algumas coisas na classe da kinash como prefix, shards, game etc.
@@ -7,7 +7,6 @@ nix = Kinash(
              command_prefix=env.bot.prefix, 
              env=env,
              emoji=emoji,
-             download=download,
              activity=discord.Game(f'www.kinash.xyz'),
              help_command=None,
              shard_ids=[int(x) for x in range(1)],
