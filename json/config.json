@@ -1,43 +1,23 @@
 {
     "app":{
-          "token":"NzA0MzAwOTc4NDQyMDc2Mjc4.XqlxDA.VzJ8-ooHOMLcrBL0pCpjqvykIZs",
+          "token":"NzA0MzAwOTc4NDQyMDc2Mjc4.XtPbHg.rCkhgQKQQdTupctffPYtlkW42Vc",
           "secret":"secret do bot",
           "id":"id do bot"
          },
     "bot":{
-           "prefix":["k."],
+           "prefix":["s."],
            "admin":["692492572878176348"],
-           "color":[[65, 57, 137], [119, 199, 199]],
+           "color":[[172,173,178], "ACADB2"],
+           "emoji":[711961314653634610],
            "link":{
                    "suport":"https://discord.gg/RmgTBYt",
                    "twitch":"https://twitch.tv/kinash",
-                   "website":"www.kinash.xyz",
+                   "website":"https://www.kinash.xyz",
                    "discord":"https://discord.gg/RmgTBYt"
                   },
            "image":[
-                    {
-                     "path": "./image/avatar/1.png",
-                     "rgb": [[119, 199, 199], [119, 199, 199]]
-                    },
-                    {
-                     "path": "./image/avatar/2.png",
-                     "rgb": [[119, 199, 199], [119, 199, 199]]
-                    },
-                    {
-                     "path": "./image/avatar/3.png",
-                     "rgb": [[119, 199, 199], [119, 199, 199]]
-                    },    
-                    {
-                     "path": "./image/avatar/4.png",
-                     "rgb": [[119, 199, 199], [119, 199, 199]]
-                    },
-                    {
-                     "path": "./image/avatar/5.png",
-                     "rgb": [[119, 199, 199], [119, 199, 199]]
-                    },
-                    {
-                     "path": "./image/avatar/6.png",
-                     "rgb": [[119, 199, 199], [119, 199, 199]]
+                    {"path": "./image/avatar/1.png",
+                     "rgb": [[172,173,178], "ACADB2"]
                     }
                    ],
            "presence":{

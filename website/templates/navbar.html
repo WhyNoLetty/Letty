@@ -1,0 +1,51 @@
+      <!-- NAVBAR -->
+      <nav id="nav" class="navbar navbar-default navbar-expand-lg">
+        <div class='container'>
+            <a class="navbar-brand" href="#">
+              <img src="{{ url_for('static', filename='img/shiro.png')}}" class="navbar-icon-profile"> Shiro 
+              <span class="badge badge-light"><b>BETA</b></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto ">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"><i class="fas fa-home navbar-icon"></i> Ínicio <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-terminal navbar-icon"></i> Comandos </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-tools navbar-icon"></i> Equipe </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" id="dropdown-social" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-link navbar-icon"></i> Social </a>
+                   <div class="dropdown-menu" aria-labelledby="dropdown-social">
+                      <a class="dropdown-item" href="#"><i class="fab fa-youtube "></i> Youtube</a>
+                      <a class="dropdown-item" href="#"><i class="fab fa-facebook "></i> Facebook</a>
+                      <a class="dropdown-item" href="#"><i class="fab fa-twitter "></i> Twitter</a>
+                      <a class="dropdown-item" href="#"><i class="fab fa-github "></i> Github</a>
+                   </div>
+                  </li>
+                </ul>
+                <ul class="navbar-nav">
+                  {% if '123' == '123' %}
+                    <a href="/login" class="btn btn-sm btn-nav" id='nav'><i class="fas fa-sign-in-alt"></i> Login</a>
+                  {% else %}
+                  <li class="nav-item active dropdown">
+                      <a class="nav-link dropdown-toggle" id="dropdown-social" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="213" class="navbar-icon-user"> 123</a>
+                   <div class="dropdown-menu" aria-labelledby="dropdown-social">
+                    <a class="dropdown-item" href="#"><i class="fas fa-id-card"></i> Perfil</a>
+                    <a class="dropdown-item" href="#"><i class="fas fa-server"></i> Servidores</a>
+                    <a class="dropdown-item" href="#"><i class="fas fa-key"></i> Api</a>
+                    <a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Deslogar</a>
+                   </div>
+                  </li>
+                 {% endif %}
+                
+                </ul>
+            </div>
+        </div>
+      </nav>
+      <!-- NAVBAR END -->  

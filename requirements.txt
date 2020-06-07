@@ -3,3 +3,5 @@ motor
 dnspython
 git+https://github.com/Nixest-Inc/Translation.git
 git+https://github.com/Nixest-Inc/MyAnimeList.git
+quart==0.8.1
+hypercorn

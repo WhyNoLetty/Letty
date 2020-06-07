@@ -3,9 +3,7 @@ from discord.ext.commands import AutoShardedBot
 from discord.ext.translation import files
 from discord.ext.mylistanime import client
 from database import on_connect_db
-from website import Server
-from threading import Thread
-import os, discord, asyncio
+import os, discord
 
 
 #Classe da bot (Autoshared class).
@@ -26,19 +24,9 @@ class Shiro(AutoShardedBot):
         self.env = kwargs['env']
         self.emoji = kwargs['emoji']
         self.db = on_connect_db(name=self.env.database.name, uri=self.env.database.url, bot=self)
-        self.site = Server(self.env, self.db, self)
         self.lang = files(source='pt_BR')
         self.mal = client()
         self.color = [discord.Colour.from_rgb(*self.env.bot.color[0]), self.env.bot.color[1]]
-        self.loop.create_task(self.start_app())
-    
-    def run_site(self):
-      asyncio.set_event_loop(self.loop)
-      self.site.run()
-
-    async def start_app(self):
-      thread = Thread(target=self.run_site)
-      thread.start()
 
     #Evento para carregar o(s) plugin(s).
     async def on_start(self):
@@ -90,3 +78,7 @@ class Shiro(AutoShardedBot):
        except Exception as e:
             #Invocar o evento command_error caso ouver algum erro na execução do comando.
             self.dispatch('command_error', ctx, e)
+
+    async def get_guild(self, id):
+       guild = await self.db.get_guild(id)
+       return guild
