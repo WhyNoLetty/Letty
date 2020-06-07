@@ -17,7 +17,8 @@ class on_connect_db():
     
     #Puxar as informações de um servidor e passar as informações pela classe Guild
     async def get_guild(self, guild_id, *, register=True):
-        if data := await self.guilds.find_one({"_id": guild_id}):
+        data = await self.guilds.find_one({"_id": guild_id})
+        if data != None:
             return Guild(data, self.guilds)
         elif register:
             return await self.register_guild(guild_id)
