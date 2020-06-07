@@ -1,5 +1,6 @@
 from quart import Quart
 from .route import Index
+import os
 
 class Server(Quart):
   def __init__(self, env, db, bot):
@@ -10,4 +11,5 @@ class Server(Quart):
 
 
   def run(self):
-      super().run(host='0.0.0.0', port=3000)
+  	  port = int(os.environ.get('PORT', 3000))
+      super().run(host='0.0.0.0', port=port)
