@@ -1,0 +1,40 @@
+      {% extends "base.html" %}
+      {% block title %}Shiro - Guilds{% endblock %}
+      {% block head %}{{ super() }}{% endblock %}
+      {% block content %}
+      <!-- BOX -->
+      <div class="container-fluid bg" id='guild'>
+              <div class="listing" id='guild'>
+                  <div class="text" id='guild'>Meus servidores!</div>
+                  <div class="cards" id='guild'>
+                      <center>
+                          <img
+                              src="https://cdn.discordapp.com/icons/702629146475364465/81d0dc56ee85e3a79874f5e3ebd1b003.png?size=512"
+                              alt="Yuka Tuka"
+                              title="Yuka Tuka"
+                              class="img-responsive img-rounded img-border"
+                          />
+                          
+                          <img
+                              src="http://via.placeholder.com/512/6e7fd5/ffffff?text=gg"
+                              alt="Emojis [#1]"
+                              title="Emojis [#1]"
+                              class="img-responsive img-rounded img-border"
+                          />
+                      </center>
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+      <div class="feedback" id='feed' data-toggle="tooltip" data-placement="right" title="" onclick="window.open('url','_blank')">
+          <button type="button" class="btn btn-feedback btn-sm" id='feed'>
+              <i class="fa fa-bug fa-2x" title="Reportar bug!"></i>
+          </button>
+      </div>
+
+      <!-- END BOX -->
+      {% endblock %}
+
