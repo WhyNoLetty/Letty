@@ -3,60 +3,63 @@
       {% block head %}{{ super() }}{% endblock %}
       {% block content %}
       <!-- BOX --><br>
+
+ 
       <section class="commands">
           <div class="container bg">
               <div class="row">
                   <!---BOX [#1] -->
+
                   <div class="col-md-3">
                       <div class="card">
                           <h6 class="card-header">Categorias</h6>
                           <div id="list-modules" class="list-group menu">
-                              <button class="cmd-btn-list cmd-btn-list-focus" id="command"><i class="fa fa-bars"></i>Todos os comandos</button>
-
-                              <button class="cmd-btn-list" id="config"><i class="fas fa-tools"></i>Configuração</button>
-
-                              <button class="cmd-btn-list" id="admin"><i class="fas fa-hammer"></i>Administração</button>
-
-                              <button class="cmd-btn-list" id="fun"><i class="fas fa-grin-squint-tears"></i>Diversão</button>
+                              <button class="cmd-btn-list cmd-btn-list-focus" id="command"><i class="fa fa-bars"></i> Todos os comandos</button>
+                              {% for name, cog in bot.cogs.items() %}
+                                {% if not name.lower() in modules %}
+                                  <button class="cmd-btn-list" id="{{name.lower()}}"> <i class="{{translate('category')[name.lower()]['icon']}}"></i> {{translate('category')[name.lower()]['name']}}</button>
+                                {% endif %}
+                              {% endfor %}
                           </div>
                       </div>
                   </div>
                   <!---BOX [#2] -->
                   <div class="col-md-6">
-                      <input type="text" class="form-control" id="search-input" aria-describedby="basic-addon3" placeholder="Digite o nome do comando que queria saber mais!" />
+                      <input type="text" class="form-control" id="search-input" aria-describedby="basic-addon3" placeholder="{{translate('website.cmds.search')}}" />
                       <div class="tab-content" id="accordion">
-                          <div class="card command config">
-                              <div class="card-header" id="langs" data-toggle="collapse" data-target="#lang" aria-expanded="true" aria-controls="lang"><span class="badge badge-dark">lang</span> - selecionar o idioma do servidor.</div>
-                              <div id="lang" class="collapse" aria-labelledby="langs" data-parent="#accordion">
-                                  <div class="card-body">
-                                      <h6>Uso : <span class="badge badge-dark">s.lang [Language]</span></h6>
-                                      <h6>Examplo : <span class="badge badge-dark">s.lang [pt-BR]</span></h6>
-                                      <h6>Alternativa : <span class="badge badge-dark">lang</span> <span class="badge badge-dark">idioma</span></h6>
-                                  </div>
-                              </div>
-                          </div>
+                          {% for name, cog in bot.cogs.items() %}
+                             {% for cmd in cog.get_commands() %}
+                               {% if not name.lower() in modules %}
+                               <div class="card command {{name.lower()}}">
+                                  <div class="card-header" id="langs" data-toggle="collapse" data-target="#{{cmd.name.lower()}}" aria-expanded="true" aria-controls="{{cmd.name.lower()}}"><span class="badge badge-dark">{{cmd.name.lower()}}</span> - {{translate('help')[cmd.name.lower()]['description']}}</div>
+                                  <div id="{{cmd.name.lower()}}" class="collapse" aria-labelledby="{{name.lower()}}s" data-parent="#accordion">
+                                      <div class="card-body">
+                                          <h6>{{translate('website.cmds.usage')}} : <span class="badge badge-dark">s.{{cmd.name.lower()}} {{translate('help')[cmd.name.lower()]['usage']}}</span></h6>
+                                          <h6>{{translate('website.cmds.aliase')}} :{% for ali in cmd|aliases %} 
+                                                               <span class="badge badge-dark">{{ali}}</span>
+                                                              {% else %}
+                                                               <span class="badge badge-dark">{{translate('website.cmds.not_defined')}}</span>
+                                                              {% endfor %}
+                                          <h6>{{translate('website.cmds.example')}} :{% for ali in cmd|examples(translate('help')[cmd.name.lower()]['example']) %} 
+                                                               <span class="badge badge-dark">{{ali}}</span>
+                                                              {% else %}
+                                                               <span class="badge badge-dark">{{translate('website.cmds.not_defined')}}</span>
+                                                              {% endfor %}
+                                          <h6>{{translate('website.cmds.perm')}} :{% for ali in translate('help')[cmd.name.lower()]['perm']|permission(translate('permission')) %} 
+                                                               <span class="badge badge-dark">{{ali}}</span>
+                                                              {% else %}
+                                                               <span class="badge badge-dark">{{translate('website.cmds.not_defined')}}</span>
+                                                              {% endfor %}
 
-                          <div class="card command admin">
-                              <div class="card-header" id="bans" data-toggle="collapse" data-target="#ban" aria-expanded="true" aria-controls="ban"><span class="badge badge-dark">ban</span> - banir um usuário do servidor.</div>
-                              <div id="ban" class="collapse" aria-labelledby="bans" data-parent="#accordion">
-                                  <div class="card-body">
-                                      <h6>Uso : <span class="badge badge-dark">s.ban [@user]</span></h6>
-                                      <h6>Examplo : <span class="badge badge-dark">s.ban [@yukatuka#1234]</span></h6>
-                                      <h6>Alternativa : <span class="badge badge-dark">ban</span> <span class="badge badge-dark">banir</span></h6>
-                                  </div>
-                              </div>
-                          </div>
 
-                          <div class="card command admin">
-                              <div class="card-header" id="kicks" data-toggle="collapse" data-target="#kick" aria-expanded="true" aria-controls="kick"><span class="badge badge-dark">kick</span> - kickar um usuário do servidor.</div>
-                              <div id="kick" class="collapse" aria-labelledby="kicks" data-parent="#accordion">
-                                  <div class="card-body">
-                                      <h6>Uso : <span class="badge badge-dark">s.kick [@user]</span></h6>
-                                      <h6>Examplo : <span class="badge badge-dark">s.kick [@yukatuka#1234]</span></h6>
-                                      <h6>Alternativa : <span class="badge badge-dark">kick</span> <span class="badge badge-dark">kickar</span></h6>
+                                          </h6>               
+                                      </div>
                                   </div>
-                              </div>
-                          </div>
+                               </div>
+                              {% endif %}
+                            {% endfor %}
+                          {% endfor %}
+
                       </div>
                   </div>
 
@@ -68,7 +71,7 @@
                                   <div id="members-list"></div>
                               </div>
                               <div class="discord-footer">
-                                  <a href="/login" class="btn btn-nav" id="nav"><i class="fas fa-plus"></i>Entre em nosso servidor!</a>
+                                  <a href="/login" class="btn btn-nav" id="nav"><i class="fas fa-plus"></i>{{translate('website.cmds.join')}}</a>
                               </div>
                           </div>
                       </div>

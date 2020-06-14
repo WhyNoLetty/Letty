@@ -1,0 +1,18 @@
+{
+  "navbar":{
+            "index":"Ínicio",
+            "commands":"Comandos",
+            "staff":"Equipe",
+            "login":"Entrar"
+           },
+
+  "cmds":{
+          "aliase":"Alternativa(s)",
+          "example":"Examplo(s)",
+          "usage":"Uso",
+          "perm":"Permissao(es)",
+          "join":"Entre em nosso servidor!",
+          "search":"Qual comando você deseja saber mais?",
+          "not_defined":"Não definido(a)"
+  }
+}

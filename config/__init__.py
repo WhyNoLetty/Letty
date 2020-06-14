@@ -1,6 +1,6 @@
 #import's necessários
 from .base import Shiro
-from .data import env, emoji, get
+from .data import env, emoji, get, helps
 from .http import get_aio, post_aio
 
 

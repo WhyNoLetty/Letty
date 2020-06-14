@@ -10,14 +10,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto ">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><i class="fas fa-home navbar-icon"></i> {{translate('website.navbar.index')}}<span class="sr-only">(current)</span></a>
+                    </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/"><i class="fas fa-home navbar-icon"></i> Ínicio <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/cmds"><i class="fas fa-terminal navbar-icon"></i> {{translate('website.navbar.commands')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/cmds"><i class="fas fa-terminal navbar-icon"></i> Comandos </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-tools navbar-icon"></i> Equipe </a>
+                        <a class="nav-link" href="#"><i class="fas fa-tools navbar-icon"></i> {{translate('website.navbar.staff')}}</a>
                     </li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" id="dropdown-social" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-link navbar-icon"></i> Social </a>
@@ -31,7 +31,7 @@
                 </ul>
                 <ul class="navbar-nav">
                   {% if '123' == '123' %}
-                    <a href="/login" class="btn btn-sm btn-nav" id='nav'><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a href="/login" class="btn btn-sm btn-nav" id='nav'><i class="fas fa-sign-in-alt"></i> {{translate('website.navbar.login')}}</a>
                   {% else %}
                   <li class="nav-item active dropdown">
                       <a class="nav-link dropdown-toggle" id="dropdown-social" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="213" class="navbar-icon-user"> 123</a>

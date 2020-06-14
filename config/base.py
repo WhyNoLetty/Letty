@@ -25,8 +25,9 @@ class Shiro(AutoShardedBot):
         self.loaded = False
         self.env = kwargs['env']
         self.emoji = kwargs['emoji']
+        self.help = kwargs['help']
         self.db = on_connect_db(name=self.env.database.name, uri=self.env.database.url, bot=self)
-        self.site = Server(self.env, self.db, self)
+        self.site = Server(self.db, self)
         self.lang = files(source='pt_BR')
         self.mal = client()
         self.color = [discord.Colour.from_rgb(*self.env.bot.color[0]), self.env.bot.color[1]]

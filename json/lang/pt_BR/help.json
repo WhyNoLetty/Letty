@@ -26,14 +26,23 @@
          },
   "eval":{
           "usage":"<Comando>",
-          "description": "Lista detalhadamente todos os comandos do bot.",
+          "description": "Executar uma função especifica no bot.",
           "example": [
                       "len(ctx.guild.members)"
                      ],
           "perm":[
           	      {"text":"administrator", "user":"3"}
           	     ]
+         },
+  "tt":{
+          "usage":"<Comando>",
+          "description": "Lista detalhadamente todos os comandos do bot.",
+          "example": [
+                      "len(ctx.guild.members)"
+                     ],
+          "perm":[
+                  {"text":"administrator", "user":"3"}
+                 ]
          }
-
 
 }    

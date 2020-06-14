@@ -19,3 +19,5 @@ env = get("./json/config.json")
 #Carregar os emojis
 emoji = get("./json/emoji.json")
 
+#Carregar os emojis
+helps = get("./json/lang/pt_BR/help.json", simple=True)
