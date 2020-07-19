@@ -1,5 +1,6 @@
 #Import's necessários (List import).
 from discord.ext import commands
+from database import Database
 
 # - Class da harumi com seus eventos.
 class Harumi(commands.AutoShardedBot):
@@ -9,13 +10,11 @@ class Harumi(commands.AutoShardedBot):
          - Funções:
           self.load : Evitar de recarregar os modulos caso haja alguma queda.
           self.env : Obter informações 'dict' da classe da parte 'env' como token, links, etc.
-          self.emoji : Obter os emojis do bot.
           self.db : Fornecer os dados para a conexão da database do bot como url, name, a variável do bot.
-          self.lang : Puxar as tradução do bot como primária sendo português a primeira tradução
-          self.color : Definir a cor dos embed.
         """
         self.loaded = False
         self.env = kwargs['env']
+        self.db = Database(url=self.env.config.database.url, name=self.env.config.database.name, harumi=self)
 
     # - Evento referente ao 'start'.
     async def on_ready(self):
