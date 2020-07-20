@@ -1,2 +1,2 @@
 #Import's necessários (Global list import).
-from .base import Database
+from .base import database

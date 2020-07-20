@@ -14,4 +14,4 @@ def get(file, type='normal'):
         print(e)
 
 # - Obter as informações do bot, como token, secret, ids, entre outros.
-Env = get("./json/config/env.json", type='obj')
+env = get("./json/config/env.json", type='obj')

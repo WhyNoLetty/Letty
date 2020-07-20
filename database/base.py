@@ -1,9 +1,9 @@
 #Import's necessários (List import).
 from motor import motor_asyncio
-from .model import Guild
+from .model import guild
 
-# - Classe principal da Database.
-class Database():
+# - Classe principal da database.
+class database():
     def __init__(self, *, name, url, harumi):
         """
          - Funções:
@@ -23,7 +23,7 @@ class Database():
         # - Se o servidor estar registrado retornar os dados do mesmo.
         if data != None:
            # - Retornar os dados do servidor como objeto.
-           return Guild(data, self.guild)
+           return guild(data, self.guild)
         else:
           # - Executar a função register_guild
           return await self.register_guild(guild_id)
@@ -38,4 +38,4 @@ class Database():
         # - Registrar o servidor no bando de dados.
         await self.guild.insert_one(data)
         # - Retornar os dados do servidor como objeto.
-        return Guild(data, self.guild)  
+        return guild(data, self.guild)  

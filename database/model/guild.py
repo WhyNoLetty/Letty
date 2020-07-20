@@ -2,7 +2,7 @@
 from motor.core import Collection
 
 # - Classe principal responsavél por converter os dados em um objeto.
-class Guild:
+class guild:
     def __init__(self, data, collection: Collection):
         """
          - Funções:

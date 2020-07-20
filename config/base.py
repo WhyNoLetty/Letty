@@ -1,9 +1,9 @@
 #Import's necessários (List import).
-from discord.ext import commands
-from database import Database
+from discord.ext import commands, translation
+from database import database
 from os import listdir
 # - Class da harumi com seus eventos.
-class Harumi(commands.AutoShardedBot):
+class harumi(commands.AutoShardedBot):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         """
@@ -14,7 +14,8 @@ class Harumi(commands.AutoShardedBot):
         """
         self.loaded = False
         self.env = kwargs['env']
-        self.db = Database(url=self.env.config.database.url, name=self.env.config.database.name, harumi=self)
+        self.db = database(url=self.env.config.database.url, name=self.env.config.database.name, harumi=self)
+        self.lang = translation.files(source='pt_BR')
     
     # - Evento para carregar o(s) plugin(s).
     async def on_start(self):
@@ -42,6 +43,8 @@ class Harumi(commands.AutoShardedBot):
        # - Executar o evento on_start caso loaded esteja 'false'.
        if not self.loaded:
           await self.on_start()
+          self.lang.load_languages()
+          print(f'[Language] : {len(self.lang.strings)} linguagem(s) carregada(s).')
           print(f"[Session] : O bot {self.user.name} está online.")  
 
     # - Evento referente a bloqueios de usuários, canais, checks entre outros.

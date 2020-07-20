@@ -1,3 +1,3 @@
 #Import's necessários (Global list import).
-from .data import Env
-from .base import Harumi
+from .data import env
+from .base import harumi

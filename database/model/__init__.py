@@ -1,2 +1,2 @@
 #Import's necessários (Global list import).
-from .guild import Guild
+from .guild import guild

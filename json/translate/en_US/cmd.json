@@ -1,0 +1,3 @@
+{
+  "say":{"none":"{emoji} **|** {ctx.prefix}{ctx.command} + algo para eu repetir."}
+}    
