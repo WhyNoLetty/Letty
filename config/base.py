@@ -62,6 +62,8 @@ class harumi(commands.AutoShardedBot):
        if not ctx.valid or ctx.command.cog_name in self.env.config.ignore and not ctx.author.id in self.env.staff:return
        # - Importar as informações do database pro context.
        ctx.db = await self.db.get_guild(ctx.guild.id)
+       # - Importar a tradução dos modulos pro context.
+       ctx.lang = self.lang.get(ctx.db.data['config']['language'])
        try:
           # - Invocar o comando pelo contexto e poder manipular alguns eventos.
           await self.invoke(ctx)
