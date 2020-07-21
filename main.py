@@ -4,9 +4,9 @@ import asyncio
 
 # - Setar as variaveis na classe da harumi
 bot = harumi(
-             env=env,
-             command_prefix=env.config.prefix
-             )
+	         env=env,
+	         command_prefix=env.config.prefix
+	        )
 
 # - Iniciar o loop de evento das task.
 loop = asyncio.get_event_loop()
@@ -20,10 +20,10 @@ try:
   # - Executar as task após ser completadas.
   loop.run_until_complete(gathered)
 except KeyboardInterrupt:
-    # - Ignorar interrupção por teclado (CRLT + D)
+	# - Ignorar interrupção por teclado (CRLT + D)
     pass
 finally:
-    # - Desconectar o bot caso tenha algum erro na task.
+	# - Desconectar o bot caso tenha algum erro na task.
     loop.run_until_complete(bot.logout())
     loop.close()
 

@@ -42,11 +42,8 @@ class harumi(commands.AutoShardedBot):
     async def on_ready(self):
        # - Executar o evento on_start caso loaded esteja 'false'.
        if not self.loaded:
-          # - Executar a função on_start pra carregar os modulos da harumi.
           await self.on_start()
-          # - Carregar toda as linguagens da harumi.
           self.lang.load_languages()
-          # - Alguns prints para aparecer no terminal.
           print(f'[Language] : {len(self.lang.strings)} linguagem(s) carregada(s).')
           print(f"[Session] : O bot {self.user.name} está online.")  
 
