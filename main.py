@@ -1,11 +1,16 @@
 #Import's necessários (List import).
 from config import env, harumi
+from discord import Game
 import asyncio
 
 # - Setar as variaveis na classe da harumi
 bot = harumi(
              env=env,
-             command_prefix=env.config.prefix
+             command_prefix=env.config.prefix,
+             activity=Game(f'with mr.roxanne | h.help'),
+             help_command=None,
+             shard_ids=[int(x) for x in range(1)],
+             shard_count=int(1)
              )
 
 # - Iniciar o loop de evento das task.

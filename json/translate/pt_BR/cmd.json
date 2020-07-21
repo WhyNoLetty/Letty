@@ -1,5 +1,20 @@
 {
   "say":{
          "none":"{emoji} **|** {ctx.prefix}{ctx.command} + algo para eu repetir."
-        }
+        },
+  
+  "help":{
+  	      "none":" **|** {ctx.author.mention}, o comando ``{args}`` não existe ou você não tem permissão para visualiza-lo."
+         },
+
+  "eval":{
+  	      "success":"**{ctx.author.name}**, o código foi executado com sucesso!\n```py\n{out}```",
+  	      "no_success":"**{ctx.author.name}**, ocorreu um erro ao tentar código.\n```py\n{out.__class__.__name__} : {out}```"
+         },
+
+  "module":{
+  	        "event":{"unload":"descarregado","load":"carregado", "reload":"recarregado"},
+  	        "no_valid":"**{ctx.author.name}**, a função não é valída.",
+  	        "success":"**{ctx.author.name}**, o modulo ``{module}`` foi ``{event}`` com sucesso."
+           }
 }    
