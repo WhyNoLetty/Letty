@@ -1,2 +1,4 @@
 discord.py==1.3.4
-git+https://github.com/WhyNoHarumi/Translation.git
+motor==2.1.0
+dnspython==2.0.0
+git+https://github.com/WhyNoHarumi/Translation.git@5afd71ca0856c8c99e9907e9711f6d63ee1f18d9

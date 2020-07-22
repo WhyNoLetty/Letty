@@ -1,0 +1,10 @@
+{
+
+  "eval":{
+  	      "executed":"**{ctx.author.name}**, o código foi executado com sucesso!\n```py\n{out}```"
+         },
+
+  "module":{
+  	        "executed":"**{ctx.author.name}**, o modulo ``{module}`` foi ``{event}`` com sucesso."
+           }
+}    

@@ -25,11 +25,11 @@ class Base(commands.Cog):
              # - Executar uma função não async.
              result = eval(code)
            # - Enviar a mensagem no canal caso a função tenha exito.
-           return await ctx.send(ctx.lang('cmd.eval.success', {"self":self.harumi, "out":result, "ctx":ctx}))
+           return await ctx.send(ctx.lang('command.eval.executed', {"self":self.harumi, "out":result, "ctx":ctx}))
        # - Caso ouver algum erro na execução do comando.
        except Exception as e:
           # - Enviar a mensagem no canal caso a função tenha não tenha exito.
-          await ctx.send(ctx.lang('cmd.eval.no_success', {"self":self.harumi, "out":e, "ctx":ctx}))
+          await ctx.send(ctx.lang('exception.eval.error', {"self":self.harumi, "out":e, "ctx":ctx}))
 
     @commands.command(name='module')
     @commands.is_owner()
@@ -40,7 +40,7 @@ class Base(commands.Cog):
          # - Checar se o evento é válido.
          if not event in ['-r', '-u', '-l']:
            # - Enviar a mensagem no canal se o evento foi inválido.
-           return await ctx.send(ctx.lang('cmd.module.no_valid', {"self":self.harumi, "ctx":ctx}))
+           return await ctx.send(ctx.lang('exception.module.valid', {"self":self.harumi, "ctx":ctx}))
          # - Recarregar o modulo.
          if event == '-r':
             self.harumi.reload_extension(f'plugins.{module}')
@@ -51,10 +51,10 @@ class Base(commands.Cog):
          elif event == '-l':
               self.harumi.load_extension(f'plugins.{module}')
          # - Enviar a mensagem no canal se o evento foi executado com sucesso.
-         await ctx.send(ctx.lang('cmd.module.success', {"self":self.harumi, "module":module, "event":ctx.lang(f'cmd.module.event.{self.module[event]}'), "ctx":ctx}))
+         await ctx.send(ctx.lang('command.module.executed', {"self":self.harumi, "module":module, "event":ctx.lang(f'common.module.{self.module[event]}'), "ctx":ctx}))
        except Exception as e:
           # - Caso ouver algum erro na execução do comando.
-          await ctx.send(ctx.lang('cmd.eval.no_success', {"self":self.harumi, "out":e, "ctx":ctx}))
+          await ctx.send(ctx.lang('exception.module.error', {"self":self.harumi, "module":module, "event":ctx.lang(f'common.module.{self.module[event]}ed'), "out":e, "ctx":ctx}))
 
 #Adicionar o plugin na lista.
 def setup(harumi):

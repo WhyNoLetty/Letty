@@ -1,0 +1,12 @@
+{
+
+  "eval":{
+          "error":"**{ctx.author.name}**, ocorreu um erro ao tentar código.\n```py\n{out.__class__.__name__} : {out}```"
+         },
+  
+  "module":{
+            "valid":"**{ctx.author.name}**, a função não é valída.",
+            "error":"**{ctx.author.name}**, ocorreu um erro ao tentar ``{event}`` o modulo ``{module}``.\n```py\n{out.__class__.__name__} : {out}```"
+           }
+
+}    
