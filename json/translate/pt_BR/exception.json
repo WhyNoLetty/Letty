@@ -6,7 +6,19 @@
   
   "module":{
             "valid":"**{ctx.author.name}**, a função não é valída.",
-            "error":"**{ctx.author.name}**, ocorreu um erro ao tentar ``{event}`` o modulo ``{module}``.\n```py\n{out.__class__.__name__} : {out}```"
-           }
+            "error":"**{ctx.author.name}**, ocorreu um erro ao tentar ``{event}`` o modulo ``{module}``.\n```py\n{out.__class__.__name__} : {out}```",
+            "unload":"descarregado",
+            "load":"carregado", 
+            "reload":"recarregado",
+            "unloaded":"descarregar",
+            "loaded":"carregar",
+            "reloaded":"recarregar"         
+           },
+  "help":{
+          "found":"**{ctx.author.name}**, o comando ``{command}`` não existe ou você não tem permissão para visualiza-lo.",
+          "aliase":"Não definida(s)",
+          "description":"Não fornecida.",
+          "permission":"Não necessita."
+         }
 
 }    

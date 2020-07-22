@@ -6,5 +6,16 @@
 
   "module":{
   	        "executed":"**{ctx.author.name}**, o modulo ``{module}`` foi ``{event}`` com sucesso."
-           }
+           },
+  
+  "help":{
+  	      "name":"Comando {command}",
+  	      "aliase":"Alternativa(s)",
+  	      "usage":"Uso",
+  	      "description":"Descrição",
+  	      "example":"Examplo(s)",
+          "helper":"Ajuda ao usuário",
+  	      "permission":"Permissão(ões) necessária(s)",
+          "suport":"FEntre em nosso [servidor de suporte]({self.env.link.suport}) se precisar de ajuda!"
+         }
 }    

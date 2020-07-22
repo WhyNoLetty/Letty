@@ -1,0 +1,13 @@
+{
+
+  "help":{
+          "usage":"<comando>",
+          "example":["ajudas", "gg", "123"],
+          "permission":[
+                        {"text":"embed_links", "user":"1"}
+                       ],
+          "description":"Mostrar informações referente a um comando, como seu uso, permissões necessária, alternativas de uso, entre outros."
+         }
+
+
+}    

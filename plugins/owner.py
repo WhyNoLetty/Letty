@@ -51,10 +51,10 @@ class Base(commands.Cog):
          elif event == '-l':
               self.harumi.load_extension(f'plugins.{module}')
          # - Enviar a mensagem no canal se o evento foi executado com sucesso.
-         await ctx.send(ctx.lang('command.module.executed', {"self":self.harumi, "module":module, "event":ctx.lang(f'common.module.{self.module[event]}'), "ctx":ctx}))
+         await ctx.send(ctx.lang('command.module.executed', {"self":self.harumi, "module":module, "event":ctx.lang(f'exception.module.{self.module[event]}'), "ctx":ctx}))
        except Exception as e:
           # - Caso ouver algum erro na execução do comando.
-          await ctx.send(ctx.lang('exception.module.error', {"self":self.harumi, "module":module, "event":ctx.lang(f'common.module.{self.module[event]}ed'), "out":e, "ctx":ctx}))
+          await ctx.send(ctx.lang('exception.module.error', {"self":self.harumi, "module":module, "event":ctx.lang(f'exception.module.{self.module[event]}ed'), "out":e, "ctx":ctx}))
 
 #Adicionar o plugin na lista.
 def setup(harumi):
