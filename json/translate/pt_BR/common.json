@@ -1,0 +1,12 @@
+{
+
+  "module":{
+            "unload":"descarregado",
+            "load":"carregado", 
+            "reload":"recarregado",
+            "unloaded":"descarregar",
+            "loaded":"carregar",
+            "reloaded":"recarregar"         
+           }
+
+}    

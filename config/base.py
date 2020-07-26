@@ -1,8 +1,7 @@
 #Import's necessários (List import).
 from discord.ext import commands, translation
 from database import database
-import os
-
+from os import listdir
 # - Class da harumi com seus eventos.
 class harumi(commands.AutoShardedBot):
     def __init__(self, *args, **kwargs):
@@ -14,13 +13,14 @@ class harumi(commands.AutoShardedBot):
           self.db : Fornecer os dados para a conexão da database do bot como url, name, a variável do bot.
         """
         self.loaded = False
-        self.db = database(url=os.environ['DB_URL'], name=os.environ['DB_NAME'], harumi=self)
+        self.env = kwargs['env']
+        self.db = database(url=self.env.config.database.url, name=self.env.config.database.name, harumi=self)
         self.lang = translation.files(source='pt_BR')
     
     # - Evento para carregar o(s) plugin(s).
     async def on_start(self):
         # - Puxar todo os plugins de um directorio.
-        plugins = [p[:-3] for p in os.listdir("plugins") if p.endswith(".py")]
+        plugins = [p[:-3] for p in listdir("plugins") if p.endswith(".py")]
         # - Contar quantos plugins existem.
         total_plugins = len(plugins)
         # - Enumerar todo os plugins e passar eles por um 'for', e após passar usar o 'try' para executar uma leitura do mesmo.
@@ -59,7 +59,7 @@ class harumi(commands.AutoShardedBot):
        # - Puxar as informações da mensagem como comandos, valores, canais, servidor etc.
        ctx = await self.get_context(message)
        # - Checar se o comando é valído, se o comando não estar em uma classe proibida, se o author é um admin.
-       if not ctx.valid or ctx.command.cog_name in [] and not ctx.author.id in []:return
+       if not ctx.valid or ctx.command.cog_name in self.env.config.ignore and not ctx.author.id in self.env.staff:return
        # - Importar as informações do database pro context.
        ctx.db = await self.db.get_guild(ctx.guild.id)
        # - Importar a tradução dos modulos pro context.

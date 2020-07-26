@@ -1,14 +1,12 @@
 #Import's necessários (List import).
-from config import harumi
+from config import env, harumi
 from discord import Game
-import asyncio, dotenv, os
-
-# - Carregar as variaveis de ambiente.
-dotenv.load_dotenv()
+import asyncio
 
 # - Setar as variaveis na classe da harumi
 bot = harumi(
-             command_prefix=os.environ['PREFIX'],
+             env=env,
+             command_prefix=env.config.prefix,
              activity=Game(f'with mr.roxanne | h.help'),
              help_command=None,
              shard_ids=[int(x) for x in range(1)],
@@ -18,7 +16,7 @@ bot = harumi(
 # - Iniciar o loop de evento das task.
 loop = asyncio.get_event_loop()
 # - Criação da task do bot.
-bot = loop.create_task(bot.start(os.environ['BOT_TOKEN']))
+bot = loop.create_task(bot.start(env.bot.token))
 # - Criação da task dashboard.
 # web = loop.create_task(web.run(host='0.0.0.0', port=int(os.environ.get('PORT', 3000)), loop=loop))
 # - Aguardar as 2 task, e quando for criadas executa-las.
