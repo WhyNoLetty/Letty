@@ -1,5 +1,5 @@
 #Import's necessários (List import).
-import discord
+import discord, os
 from discord.ext import commands
 
 #Classe do plugin 'Base'
@@ -44,15 +44,9 @@ class Base(commands.Cog):
          invocation = ctx.prefix + (command.full_parent_name + ' ' if command.parent else '')
          em.add_field(name=ctx.lang('command.help.example'), value='\n'.join(f'• ``{invocation}{aliases[i] if -1 < i < len(aliases) else command.name} {e}``' for i, e in enumerate(example, -1)), inline=False)
        em.add_field(name=ctx.lang('command.help.description'), value=f'• ``{description}``', inline=False)
-       em.add_field(name="\u200b", value=ctx.lang('command.help.suport', {"self":self.harumi}), inline=False)
+       em.add_field(name="\u200b", value=ctx.lang('command.help.suport', {"suport":os.environ['LINK']}), inline=False)
        em.set_footer(text=f"{ctx.me.name} © 2020", icon_url=ctx.me.avatar_url)
        return await ctx.send(embed=em)
-
-
-
-
-
-
 
     #Comando de ajuda para o usuário.
     @commands.command(name='help', aliases=['oi'])

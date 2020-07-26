@@ -16,6 +16,6 @@
   	      "example":"Examplo(s)",
           "helper":"Ajuda ao usuário",
   	      "permission":"Permissão(ões) necessária(s)",
-          "suport":"FEntre em nosso [servidor de suporte]({self.env.link.suport}) se precisar de ajuda!"
+          "suport":"Entre em nosso [servidor de suporte]({suport}) se precisar de ajuda!"
          }
 }    
