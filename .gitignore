@@ -3,3 +3,4 @@ json/config/env.json
 *.pyc
 env.bat
 *.txt
+json/config/.env

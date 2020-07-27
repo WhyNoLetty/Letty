@@ -1,7 +1,10 @@
 #Import's necessários (List import).
 from discord.ext import commands, translation
 from database import database
+from utils import cache
 from os import listdir
+import os
+
 # - Class da harumi com seus eventos.
 class harumi(commands.AutoShardedBot):
     def __init__(self, *args, **kwargs):
@@ -11,16 +14,20 @@ class harumi(commands.AutoShardedBot):
           self.load : Evitar de recarregar os modulos caso haja alguma queda.
           self.env : Obter informações 'dict' da classe da parte 'env' como token, links, etc.
           self.db : Fornecer os dados para a conexão da database do bot como url, name, a variável do bot.
+          self.lang : Obter as traduções do bot.
+          self.cache : Cache da Harumi para diversas funções.
         """
         self.loaded = False
         self.env = kwargs['env']
-        self.db = database(url=self.env.config.database.url, name=self.env.config.database.name, harumi=self)
+        self.db = database(url=os.environ['DB_URL'], name=os.environ['DB_NAME'], harumi=self)
         self.lang = translation.files(source='pt_BR')
+        self.cache = cache()
+
     
     # - Evento para carregar o(s) plugin(s).
     async def on_start(self):
         # - Puxar todo os plugins de um directorio.
-        plugins = [p[:-3] for p in listdir("plugins") if p.endswith(".py")]
+        plugins = [p[:-3] for p in os.listdir("plugins") if p.endswith(".py")]
         # - Contar quantos plugins existem.
         total_plugins = len(plugins)
         # - Enumerar todo os plugins e passar eles por um 'for', e após passar usar o 'try' para executar uma leitura do mesmo.
