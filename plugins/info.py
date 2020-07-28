@@ -1,6 +1,8 @@
 #Import's necessários (List import).
 import discord
 from discord.ext import commands
+import os
+from json import load
 
 #Classe do plugin 'Base'
 class Base(commands.Cog):
@@ -49,7 +51,13 @@ class Base(commands.Cog):
        return await ctx.send(embed=em)
 
 
+    #Comando de ajuda para o usuário.
+    @commands.command(name='gg')
+    async def _helpp(self, ctx):
+        value = os.environ['BOT_STAFF']
+        gg = load(value, object_hook=lambda d: namedtuple('X', d.keys())(*d.values()))
 
+        await ctx.send(gg)
 
 
 

@@ -5,10 +5,10 @@ __all__ = ('Cache')
 # - Classe da Harumi para armazenar algumas informações em "cache".
 class cache:
     # - Incluir atributos na instancia.
-    __slots__ = ('guild_prefixes')
+    __slots__ = ('prefix')
     def __init__(self):
     	# - Prefixo dos servidores
-        self.guild_prefixes = {}
+        self.prefix = {}
 
     # - Limpar o totalmente o cache.
     def clear(self) -> None:

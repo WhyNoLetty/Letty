@@ -1,12 +1,12 @@
 #Import's necessários (List import).
 from config import env, harumi
 from discord import Game
+from utils import prefix
 import asyncio, os
 
-# - Setar as variaveis na classe da harumi
+# - Setar as variaveis na classe da Harumi
 bot = harumi(
-             env=env,
-             command_prefix=env.config.prefix,
+             command_prefix=prefix,
              activity=Game(f'with mr.roxanne | h.help'),
              help_command=None,
              shard_ids=[int(x) for x in range(1)],

@@ -5,20 +5,18 @@ from utils import cache
 from os import listdir
 import os
 
-# - Class da harumi com seus eventos.
+# - Class da Harumi com seus eventos.
 class harumi(commands.AutoShardedBot):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         """
          - Funções:
-          self.load : Evitar de recarregar os modulos caso haja alguma queda.
-          self.env : Obter informações 'dict' da classe da parte 'env' como token, links, etc.
-          self.db : Fornecer os dados para a conexão da database do bot como url, name, a variável do bot.
-          self.lang : Obter as traduções do bot.
+          self.loaded : Evitar de recarregar os modulos caso haja alguma queda.
+          self.db : Fornecer dados para conexão do database e obter informações desta mesma database da harumi.
+          self.lang : Obter as traduções da Harumi.
           self.cache : Cache da Harumi para diversas funções.
         """
         self.loaded = False
-        self.env = kwargs['env']
         self.db = database(url=os.environ['DB_URL'], name=os.environ['DB_NAME'], harumi=self)
         self.lang = translation.files(source='pt_BR')
         self.cache = cache()
@@ -66,7 +64,7 @@ class harumi(commands.AutoShardedBot):
        # - Puxar as informações da mensagem como comandos, valores, canais, servidor etc.
        ctx = await self.get_context(message)
        # - Checar se o comando é valído, se o comando não estar em uma classe proibida, se o author é um admin.
-       if not ctx.valid or ctx.command.cog_name in self.env.config.ignore and not ctx.author.id in self.env.staff:return
+       if not ctx.valid or ctx.command.cog_name in os.environ['MODULE_IGNORE'] and not ctx.author.id in os.environ['BOT_STAFF']:return
        # - Importar as informações do database pro context.
        ctx.db = await self.db.get_guild(ctx.guild.id)
        # - Importar a tradução dos modulos pro context.

@@ -7,6 +7,7 @@ class database():
     def __init__(self, *, name, url, harumi):
         """
          - Funções:
+          self.harumi : classe da harumi pra obter informações como guild, usuário, canal, etc.
           self.connection : Fazer a conexão com o banco de dados mongoDB através do Motor asyncio.
           self.db : Puxa informações da 'collection'.
         """
@@ -16,7 +17,7 @@ class database():
         self.guild = db.guilds
 
 
-    # - Puxar as informações de um servidor e passar as informações pela classe Guild
+    # - Puxar as informações de um servidor e passar as informações pela classe guild
     async def get_guild(self, guild_id):
     	# - Verificar se o servidor estar registrado no database.
         data = await self.guild.find_one({"_id": guild_id})

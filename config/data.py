@@ -1,6 +1,8 @@
 #Import's necessários (List import).
 from json import load
 from collections import namedtuple
+from dotenv import load_dotenv
+
 
 # - Ler o arquivo e converter ele em objeto ou pega-lo puro.
 def get(file, type='normal'):
@@ -22,3 +24,6 @@ def get(file, type='normal'):
 
 # - Obter as informações do bot, como token, secret, ids, entre outros.
 env = get("./json/config/env.json", type='obj')
+# - Carregar os valores do .env.
+load_dotenv("./json/config/.env")
+
