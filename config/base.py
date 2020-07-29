@@ -1,4 +1,5 @@
 #Import's necessários (List import).
+from discord import Colour
 from discord.ext import commands, translation
 from database import database
 from utils import cache
@@ -14,7 +15,8 @@ class harumi(commands.AutoShardedBot):
           self.loaded : Evitar de recarregar os modulos caso haja alguma queda.
           Self.config : Dados relacionado a configuração da Harumi.
           self.staff : Dados da equipe da Harumi, como Dono, Admin, etc.
-          self.link : Lista de links da Harumi como suporte, patreon, doação etc. 
+          self.link : Lista de links da Harumi como suporte, patreon, doação etc.
+          self.color : Obter a cor do embed. 
           self.db : Fornecer dados para conexão do database e obter informações desta mesma database da Harumi.
           self.lang : Obter as traduções da Harumi.
           self.cache : Cache da Harumi para diversas funções.
@@ -23,6 +25,7 @@ class harumi(commands.AutoShardedBot):
         self.config = kwargs['config']
         self.staff = kwargs['staff']
         self.link = kwargs['link']
+        self.color = [Colour.from_rgb(*self.config.color.embed.normal), Colour.from_rgb(*self.config.color.embed.error)]
         self.db = database(url=os.environ['DB_URL'], name=os.environ['DB_NAME'], harumi=self)
         self.lang = translation.files(source='pt_BR')
         self.cache = cache()

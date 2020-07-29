@@ -2,8 +2,8 @@
 import discord
 from discord.ext import commands
 
-#Classe do plugin 'Base'
-class Base(commands.Cog):
+#Classe do plugin 'Owner'
+class Owner(commands.Cog):
     def __init__(self, harumi):
         """
          - Funções:
@@ -58,4 +58,4 @@ class Base(commands.Cog):
 
 #Adicionar o plugin na lista.
 def setup(harumi):
-    harumi.add_cog(Base(harumi))        
+    harumi.add_cog(Owner(harumi))        

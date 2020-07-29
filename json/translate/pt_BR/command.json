@@ -16,6 +16,10 @@
   	      "example":"Examplo(s)",
           "helper":"Ajuda ao usuário",
   	      "permission":"Permissão(ões) necessária(s)",
-          "suport":"FEntre em nosso [servidor de suporte]({self.env.link.suport}) se precisar de ajuda!"
+          "category":"{category} [{total}]",
+          "update":"Para obter ajuda, atualizações e muito mais",
+          "list":"Lista De Comandos",
+          "help":"Use ``{prefix}help [comando]`` para obter mais sobre o comando! (Ex :``{prefix}help rank``)",
+          "suport":"Entre em nosso [servidor de suporte]({self.link.suport}) se precisar de ajuda!"
          }
 }    

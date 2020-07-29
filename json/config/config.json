@@ -3,7 +3,10 @@
   "prefix":"h.",
   
   "color":{
-           "embed":"606060"
+           "embed":{
+           	        "normal":[51, 255, 102],
+           	        "error":[255, 0, 0]
+                   }
           },
   
   "ignore":{

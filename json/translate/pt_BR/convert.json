@@ -7,6 +7,10 @@
             "unloaded":"descarregar",
             "loaded":"carregar",
             "reloaded":"recarregar"         
-           }
+           },
+  "help":{
+          "base":"Informação",
+          "owner":"Dono Harumi"
+        }
 
 }    

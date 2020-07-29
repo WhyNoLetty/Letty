@@ -1,5 +1,5 @@
 #Import's necessários (List import).
-from config import harumi, config, staff
+from config import harumi, config, staff, link
 from discord import Game
 from utils import prefix
 import asyncio, os
