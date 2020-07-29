@@ -54,10 +54,7 @@ class Base(commands.Cog):
     #Comando de ajuda para o usuário.
     @commands.command(name='gg')
     async def _helpp(self, ctx):
-        value = os.environ['BOT_STAFF']
-        gg = load(value, object_hook=lambda d: namedtuple('X', d.keys())(*d.values()))
-
-        await ctx.send(gg)
+        await ctx.send("123")
 
 
 

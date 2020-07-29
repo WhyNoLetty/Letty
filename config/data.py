@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 # - Ler o arquivo e converter ele em objeto ou pega-lo puro.
 def get(file, type='normal'):
-	# - Tentar executar o evento.
+	  # - Tentar executar o evento.
     try:
       # - Abrir o arquivo com formatação uft8.	
       with open(file, encoding='utf8') as data:
@@ -22,8 +22,15 @@ def get(file, type='normal'):
     	# - Caso houver um erro printa-lo.
         print(e)
 
-# - Obter as informações do bot, como token, secret, ids, entre outros.
-env = get("./json/config/env.json", type='obj')
+# - Obter as informações da Harumi, cor de embed, lista de ignoração, ids, entre outros.
+config = get("./json/config/config.json", type='obj')
+
+# - Obter a listagem de staff da Harumi.
+staff = get("./json/config/staff.json", type='obj')
+
+# - Obter a listagem de links uteís da Harumi.
+link = get("./json/config/link.json", type='obj')
+
 # - Carregar os valores do .env.
 load_dotenv("./json/config/.env")
 

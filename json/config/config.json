@@ -1,0 +1,12 @@
+{
+
+  "prefix":"h.",
+  
+  "color":{
+           "embed":"606060"
+          },
+  
+  "ignore":{
+  	        "module":[]
+           }
+}

@@ -12,11 +12,17 @@ class harumi(commands.AutoShardedBot):
         """
          - Funções:
           self.loaded : Evitar de recarregar os modulos caso haja alguma queda.
-          self.db : Fornecer dados para conexão do database e obter informações desta mesma database da harumi.
+          Self.config : Dados relacionado a configuração da Harumi.
+          self.staff : Dados da equipe da Harumi, como Dono, Admin, etc.
+          self.link : Lista de links da Harumi como suporte, patreon, doação etc. 
+          self.db : Fornecer dados para conexão do database e obter informações desta mesma database da Harumi.
           self.lang : Obter as traduções da Harumi.
           self.cache : Cache da Harumi para diversas funções.
         """
         self.loaded = False
+        self.config = kwargs['config']
+        self.staff = kwargs['staff']
+        self.link = kwargs['link']
         self.db = database(url=os.environ['DB_URL'], name=os.environ['DB_NAME'], harumi=self)
         self.lang = translation.files(source='pt_BR')
         self.cache = cache()
@@ -64,7 +70,7 @@ class harumi(commands.AutoShardedBot):
        # - Puxar as informações da mensagem como comandos, valores, canais, servidor etc.
        ctx = await self.get_context(message)
        # - Checar se o comando é valído, se o comando não estar em uma classe proibida, se o author é um admin.
-       if not ctx.valid or ctx.command.cog_name in os.environ['MODULE_IGNORE'] and not ctx.author.id in os.environ['BOT_STAFF']:return
+       if not ctx.valid or ctx.command.cog_name in self.config.ignore.module and not ctx.author.id in self.staff:return
        # - Importar as informações do database pro context.
        ctx.db = await self.db.get_guild(ctx.guild.id)
        # - Importar a tradução dos modulos pro context.

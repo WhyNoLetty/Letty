@@ -1,21 +1,7 @@
 {
-	"bot":{
-	       "token":"NzA0MzAwOTc4NDQyMDc2Mjc4.XxQbXQ.YDp-zy1tIEmnhFjbI4MUNIK096A",
-	       "secret":"1t1fczEp9R-BJjoo9NIsNEi3g1KK7N9k"
-	      },
-	      
-	"config":{
-		      "prefix":["h.", "h!"],
-		      "ignore":[],
-		      "database":{
-		                  "url":"mongodb+srv://mr_roxanne:D157359@harumi.w3adq.mongodb.net/Harumi?retryWrites=true&w=majority",
-		                  "name":"Harumi"
-		                 }
-	         },
-    "staff":{
-    	     "owner":[692492572878176348]
-            },
-    "link":{
-    	    "suport":"http://discord.gg/RmgTBYt"
-           }
+	"owner":[],
+	"administrator":[],
+	"moderator":[],
+	"helper":[],
+	"designer":[]
 }
