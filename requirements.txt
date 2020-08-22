@@ -10,7 +10,6 @@ git+https://github.com/WhyNoHarumi/Translation.git@5afd71ca0856c8c99e9907e9711f6
 idna==2.10
 motor==2.1.0
 multidict==4.7.6
-git+https://github.com/WhyNoHarumi/MyAnimeList.git@e7759aa28048269ef64cc2f2e3deb5a8df314bf7
 pymongo==3.10.1
 python-dateutil==2.8.1
 python-dotenv==0.14.0
