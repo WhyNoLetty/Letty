@@ -1,3 +1,3 @@
 #Import's necessários (Global list import).
-from .data import config, staff, link
+from .data import kwarg
 from .base import harumi

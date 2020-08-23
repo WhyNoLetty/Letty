@@ -1,10 +1,11 @@
 #Import's necessários (List import).
 from discord import Colour
-from discord.ext import commands, translation
+from .data import kwarg
+from discord.ext import commands
+from discord.ext.translation import files
 from database import database
 from utils import cache
 from os import listdir
-import os
 
 # - Class da Harumi com seus eventos.
 class harumi(commands.AutoShardedBot):
@@ -13,28 +14,27 @@ class harumi(commands.AutoShardedBot):
         """
          - Funções:
           self.loaded : Evitar de recarregar os modulos caso haja alguma queda.
-          Self.config : Dados relacionado a configuração da Harumi.
-          self.staff : Dados da equipe da Harumi, como Dono, Admin, etc.
-          self.link : Lista de links da Harumi como suporte, patreon, doação etc.
           self.color : Obter a cor do embed. 
           self.db : Fornecer dados para conexão do database e obter informações desta mesma database da Harumi.
           self.lang : Obter as traduções da Harumi.
           self.cache : Cache da Harumi para diversas funções.
+          self.data : Informações da Harumi como staff, configuração, links etc.
         """
         self.loaded = False
         self.config = kwargs['config']
         self.staff = kwargs['staff']
         self.link = kwargs['link']
-        self.color = [Colour.from_rgb(*self.config.color.embed.normal), Colour.from_rgb(*self.config.color.embed.error)]
-        self.db = database(url=os.environ['DB_URL'], name=os.environ['DB_NAME'], harumi=self)
-        self.lang = translation.files(source='pt_BR')
+        self.data = kwarg()
         self.cache = cache()
+        self.db = database(harumi=self)
+        self.lang = files(source='pt_BR')
+        self.color = [Colour.from_rgb(*self.data.config.color.embed.normal), Colour.from_rgb(*self.data.config.color.embed.error)]
 
     
     # - Evento para carregar o(s) plugin(s).
     async def on_start(self):
         # - Puxar todo os plugins de um directorio.
-        plugins = [p[:-3] for p in os.listdir("plugins") if p.endswith(".py")]
+        plugins = [p[:-3] for p in listdir("plugins") if p.endswith(".py")]
         # - Contar quantos plugins existem.
         total_plugins = len(plugins)
         # - Enumerar todo os plugins e passar eles por um 'for', e após passar usar o 'try' para executar uma leitura do mesmo.
@@ -73,7 +73,7 @@ class harumi(commands.AutoShardedBot):
        # - Puxar as informações da mensagem como comandos, valores, canais, servidor etc.
        ctx = await self.get_context(message)
        # - Checar se o comando é valído, se o comando não estar em uma classe proibida, se o author é um admin.
-       if not ctx.valid or ctx.command.cog_name in self.config.ignore.module and not ctx.author.id in self.staff:return
+       if not ctx.valid or ctx.command.cog_name in self.data.config.ignore.module and not ctx.author.id in self.data.staff:return
        # - Importar as informações do database pro context.
        ctx.db = await self.db.get_guild(ctx.guild.id)
        # - Importar a tradução dos modulos pro context.

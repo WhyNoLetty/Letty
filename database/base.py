@@ -1,10 +1,11 @@
 #Import's necessários (List import).
 from motor import motor_asyncio
 from .model import guild
+import os
 
 # - Classe principal da database.
-class database():
-    def __init__(self, *, name, url, harumi):
+class database:
+    def __init__(self, *, harumi):
         """
          - Funções:
           self.harumi : classe da harumi pra obter informações como guild, usuário, canal, etc.
@@ -12,8 +13,8 @@ class database():
           self.db : Puxa informações da 'collection'.
         """
         self.harumi = harumi
-        self.connection = motor_asyncio.AsyncIOMotorClient(url)
-        self.db = db = self.connection[name]
+        self.connection = motor_asyncio.AsyncIOMotorClient(os.environ['DB_URL'])
+        self.db = db = self.connection[os.environ['DB_NAME']]
         self.guild = db.guilds
 
 

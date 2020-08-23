@@ -1,14 +1,11 @@
 #Import's necessários (List import).
-from config import harumi, config, staff, link
+from config import harumi, config, staff, link, emoji
 from discord import Game
 from utils import prefix
 import asyncio, os
 
 # - Setar as variaveis na classe da Harumi
 bot = harumi(
-             staff=staff,
-             config=config,
-             link=link,
              command_prefix=prefix,
              activity=Game(f'with mr.roxanne | h.help'),
              help_command=None,
