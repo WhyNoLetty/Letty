@@ -66,8 +66,8 @@ class Base(commands.Cog):
           # - Executar a função pra puxar o embed com as informações com o comando.
           return await self.command_help(ctx, command)
        # - Criação do embed com as informações dos comandos.
-       em = discord.Embed(colour=self.harumi.color[0], title=ctx.lang('command.help.update'), description=ctx.lang('command.help.help', {'prefix':self.harumi.cache.prefix[ctx.guild.id]}), url=self.harumi.link.suport)
-       em.set_author(name=ctx.lang('command.help.list'), icon_url=ctx.me.avatar_url, url=self.harumi.link.website)
+       em = discord.Embed(colour=self.harumi.color[0], title=ctx.lang('command.help.update'), description=ctx.lang('command.help.help', {'prefix':self.harumi.cache.prefix[ctx.guild.id]}), url=self.harumi.data.link.suport)
+       em.set_author(name=ctx.lang('command.help.list'), icon_url=ctx.me.avatar_url, url=self.harumi.data.link.website)
        # - Passar todo os modulos da Harumi em um for e sortea-los.
        for name, cog in sorted(self.harumi.cogs.items(), key=lambda c: c[0] == 'Music', reverse=True):
           # - Pegar apenas os comandos visível do modulo.

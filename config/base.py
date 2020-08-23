@@ -21,9 +21,6 @@ class harumi(commands.AutoShardedBot):
           self.data : Informações da Harumi como staff, configuração, links etc.
         """
         self.loaded = False
-        self.config = kwargs['config']
-        self.staff = kwargs['staff']
-        self.link = kwargs['link']
         self.data = kwarg()
         self.cache = cache()
         self.db = database(harumi=self)
