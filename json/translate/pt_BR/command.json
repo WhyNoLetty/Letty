@@ -6,10 +6,9 @@
                    "error":" ``{ctx.author.name}``, ocorreu um erro ao tentar código.\n```py\n{traceback.format_exc()}```"
                   }
          },
-
-
   "eval":{
-  	      "executed":"**{ctx.author.name}**, o código foi executado com sucesso!\n```py\n{out}```"
+          "success":"``{ctx.author.name}``, o código foi executado com sucesso!\n```py\n{e}```",
+          "error":" ``{ctx.author.name}``, ocorreu um erro ao tentar código.\n```py\n{e.args}```"
          },
 
   "module":{

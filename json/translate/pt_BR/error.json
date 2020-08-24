@@ -1,0 +1,9 @@
+{
+
+  "on_command":{
+               "server":{"name":"Servidor", "string":"Nome : {ctx.guild}\nId : {ctx.guild.id}"},
+               "user":{"name":"Usuário", "string":"Nome : {ctx.author.name}\nId : {ctx.author.id}"},
+               "channel":{"name":"Canal", "string":"Nome : {ctx.channel.name}\nId : {ctx.channel.id}"},
+               "message":{"name":"Mensagem", "string":"Id : {ctx.message.id}\nContexto : {ctx.message.content}"}
+               }
+}    

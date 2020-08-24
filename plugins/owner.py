@@ -1,5 +1,5 @@
 #Import's necessários (List import).
-import discord, json, traceback
+import discord, json, traceback, sys
 from config import get
 from discord.ext import commands
 
@@ -17,28 +17,23 @@ class Owner(commands.Cog):
     @commands.command(name='make')
     @commands.is_owner()
     async def _make(self, ctx, event):
-
        if event == 'emoji':
-        try:
-          # - Array para armazenar os emojis temporariamente.
-          array = {}
-          # - Puxar todos os 'ids' das guilds.
-          for guild in self.harumi.data.config.id.guild.emoji:
-            # - Puxar  todos os emojis da guild.
-            for emoji in self.harumi.get_guild(guilds).emojis:
-              # - Adicionar o nome do emoji mais o emoji no Array.
-              array[emoji.name] = str(emoji)
-          # - Abrir o arquivo emoji.json e ler-lo.
-          with open('./json/config/emoji.json', 'w+') as jsonf:
-              # - Inserir os emojis do Array no json e salva-lo.
-              json.dump(array, jsonf)
-          # - Atualizar os emojis da Harumi na class Kwarg.
-          self.harumi.data.emoji = get("./json/config/emoji.json", type='obj')
-          # - Enviar a mensagem no canal caso a evento tenha exito.
-          await ctx.send(ctx.lang('command.make.emoji.success', {"ctx":ctx, "emoji":len(array)}))
-        except Exception as e:
-          # - Enviar a mensagem no canal caso a evento não tenha exito com o error.
-          await ctx.send(ctx.lang('command.make.emoji.error', {"ctx":ctx, "traceback":traceback}))
+        # - Array para armazenar os emojis temporariamente.
+        array = {}
+        # - Puxar todos os 'ids' das guilds.
+        for guild in self.harumi.data.config.id.guild.emoji:
+          # - Puxar  todos os emojis da guild.
+          for emoji in self.harumi.get_guild(guilds).emojis:
+            # - Adicionar o nome do emoji mais o emoji no Array.
+            array[emoji.name] = str(emoji)
+        # - Abrir o arquivo emoji.json e ler-lo.
+        with open('./json/config/emoji.json', 'w+') as jsonf:
+            # - Inserir os emojis do Array no json e salva-lo.
+            json.dump(array, jsonf)
+        # - Atualizar os emojis da Harumi na class Kwarg.
+        self.harumi.data.emoji = get("./json/config/emoji.json", type='obj')
+        # - Enviar a mensagem no canal caso a evento tenha exito.
+        await ctx.send(ctx.lang('command.make.emoji.success', {"ctx":ctx, "emoji":len(array)}))
 
     # - Executar funções no bot.
     @commands.command(name='eval')
@@ -48,16 +43,16 @@ class Owner(commands.Cog):
        try:
            # - Executar uma função async.
            if code.startswith('await '):
-              result = await eval(code[6:])
+              aa = await eval(code[6:])
            else:
              # - Executar uma função não async.
-             result = eval(code)
+             aa = eval(code)
            # - Enviar a mensagem no canal caso a função tenha exito.
-           return await ctx.send(ctx.lang('command.eval.executed', {"self":self.harumi, "out":result, "ctx":ctx}))
+           return await ctx.send(ctx.lang('command.eval.success', {"ctx":ctx, "e":aa}))
        # - Caso ouver algum erro na execução do comando.
        except Exception as e:
           # - Enviar a mensagem no canal caso a função tenha não tenha exito.
-          await ctx.send(ctx.lang('exception.eval.error', {"self":self.harumi, "out":e, "ctx":ctx}))
+          await ctx.send(ctx.lang('command.eval.error', {"ctx":ctx, "e":e}))
 
     @commands.command(name='module')
     @commands.is_owner()
