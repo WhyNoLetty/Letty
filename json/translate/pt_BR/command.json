@@ -1,32 +1,10 @@
 {
 
   "make":{
-          "emoji":{
-                   "success":" ``{ctx.author.name}``, foram criados ``{emoji}`` novos emojis!",
-                   "error":" ``{ctx.author.name}``, ocorreu um erro ao tentar código.\n```py\n{traceback.format_exc()}```"
-                  }
+          "success":"``{ctx.author.name}``, foram criados ``{emoji}`` novos emojis."
          },
   "eval":{
-          "success":"``{ctx.author.name}``, o código foi executado com sucesso!\n```py\n{e}```",
-          "error":" ``{ctx.author.name}``, ocorreu um erro ao tentar código.\n```py\n{e.args}```"
-         },
-
-  "module":{
-  	        "executed":"**{ctx.author.name}**, o modulo ``{module}`` foi ``{event}`` com sucesso."
-           },
-  
-  "help":{
-  	      "name":"Comando {command}",
-  	      "aliase":"Alternativa(s)",
-  	      "usage":"Uso",
-  	      "description":"Descrição",
-  	      "example":"Examplo(s)",
-          "helper":"Ajuda ao usuário",
-  	      "permission":"Permissão(ões) necessária(s)",
-          "category":"{category} [{total}]",
-          "update":"Para obter ajuda, atualizações e muito mais",
-          "list":"Lista De Comandos",
-          "help":"Use ``{prefix}help [comando]`` para obter mais sobre o comando! (Ex :``{prefix}help rank``)",
-          "suport":"Entre em nosso [servidor de suporte]({self.data.link.suport}) se precisar de ajuda!"
-         }
+          "success":"``{ctx.author.name}``, a função foi executada com sucesso.\n```py\n {code}```",
+          "error":"``{ctx.author.name}``, houve um erro na execução.\n```py\n {code}```"
+         }         
 }    
