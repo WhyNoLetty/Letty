@@ -6,5 +6,21 @@
   "eval":{
           "success":"``{ctx.author.name}``, a função foi executada com sucesso.\n```py\n {code}```",
           "error":"``{ctx.author.name}``, houve um erro na execução.\n```py\n {code}```"
-         }         
+         },
+
+  "help":{
+          "user":"Ajuda ao Usuário",
+          "list":"Listagem de Comandos",
+  	      "name":"{self.data.emoji.letter} Nome",
+          "usage":"{self.data.emoji.tags} Uso",
+          "description":"{self.data.emoji.text} Descrição",
+          "description_full":"[**Dashboard**]({self.data.link.website}) **|** [**Vote**]({self.data.link.website}/vote) **|** [**Github**]({self.data.link.github}) **|** [**Convite**]({self.data.link.invite}) **|** [**Doação**]({self.data.link.donate}) **|** [**Suporte**]({self.data.link.suport})\n\nDigite ``{prefix}help [comando]`` para obter mais ajuda.\nAlguma das configurações pode ser configurada pelo [site]({self.data.link.website})\n",
+          "aliase":"{self.data.emoji.hiragana} Alternativa(s) [{count}]",
+          "example":"{self.data.emoji.example} Exemplo(s) [{count}]",
+          "sub":"{self.data.emoji.console} Sub-comando(s) [{count}]",
+          "permission":"{self.data.emoji.lock} Permissão(ões) [{count}]",
+          "suport":"[**DICA**]: Tem alguma dúvida? Entre em nosso [servidor]({self.data.link.suport}) que iremos te ajudar!",
+  	      "hidden_or_not":"``{ctx.author.name}``, o comando ``{args}`` não existe ou você não tem permissão para visualiza-lo.",
+          "invoke_subcommand":"Digite **{ctx.prefix}{help} {command.name} <Sub-Comando>** para ver mais informações sobre um sub-comando do grupo de comandos de **{command.name}**."
+         }                
 }    

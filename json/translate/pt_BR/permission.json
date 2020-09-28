@@ -1,0 +1,41 @@
+{
+  "user":{
+          "1":"Bot",
+          "2":"Author",
+          "3":"Dono",
+          "4":"Bot & Author",
+          "5":"."
+  },
+  "text":{
+          "not_perm":"Não necessita permissões extras",
+          "add_reactions": "Adicionar reações",
+          "administrator": "Administrador",
+          "attach_files": "Anexar arquivos",
+          "ban_members": "Banir membros",
+          "change_nickname": "Alterar apelido",
+          "connect": "Conectar",
+          "create_instant_invite": "Criar um convite instantâneo",
+          "deafen_members": "Desativar áudio de membros",
+          "embed_links": "Inserir links",
+          "external_emojis": "Usar emojis externos",
+          "kick_members": "Expulsar membros",
+          "manage_channels": "Gerenciar canais",
+          "manage_emojis": "Gerenciar emojis",
+          "manage_guild": "Gerenciar servidor",
+          "manage_messages": "Gerenciar mensagens",
+          "manage_nicknames": "Gerenciar apelidos",
+          "manage_roles": "Gerenciar cargos",
+          "manage_webhooks": "Gerenciar webhooks",
+          "mention_everyone": "Mencionar todos",
+          "move_members": "Mover membros",
+          "mute_members": "Ensurdecer membros",
+          "priority_speaker": "Voz Prioritária",
+          "read_message_history": "Ver histórico de mensagens",
+          "read_messages": "Ler mensagens",
+          "send_messages": "Enviar mensagens",
+          "send_tts_messages": "Enviar mensagens em TTS",
+          "speak": "Falar",
+          "use_voice_activation": "Usar detecção de voz",
+          "view_audit_log": "Ver o registro de auditoria"
+         }
+}

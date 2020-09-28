@@ -12,9 +12,9 @@ bot = Letty(
             )
 
 loop = asyncio.get_event_loop()
-bot = loop.create_task(bot.start(os.environ['BOT_TOKEN']))
-# web = loop.create_task(web.run(host='0.0.0.0', port=int(os.environ.get('PORT', 3000)), loop=loop))
-gathered = asyncio.gather(bot)
+task_bot = loop.create_task(bot.start(os.environ['BOT_TOKEN']))
+#task_web = loop.create_task(web.run(host='0.0.0.0', port=int(os.environ.get('PORT', 3000)), loop=loop))
+gathered = asyncio.gather(task_bot)
 try:
   loop.run_until_complete(gathered)
 except KeyboardInterrupt:

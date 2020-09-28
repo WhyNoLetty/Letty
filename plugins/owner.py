@@ -21,9 +21,9 @@ class Owner(commands.Cog):
         array = {}
         for guild in self.letty.data.config.id.guild.emoji:
           for emoji in self.letty.get_guild(guild).emojis:
-            array[emoji.name] = str(emoji)
+            array[emoji.name.lower()] = str(emoji)
         with open('./json/config/emoji.json', 'w+') as jsonf:
-            json.dump(array, jsonf)
+            json.dump(array, jsonf, indent=4, sort_keys=True)
         self.letty.data.emoji = get("./json/config/emoji.json", type='obj')
         await ctx.send(await ctx.lang('command|make|success', {"ctx":ctx, "emoji":len(array)}))
 

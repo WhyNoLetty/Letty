@@ -1,0 +1,11 @@
+{
+  "not_defined":{
+                 "m":"Não definido",
+                 "f":"Não definida"
+               },
+        
+  "help":{
+  	      "info":"{self.data.emoji.help} Ajuda [{count}]",
+  	      "owner":"{self.data.emoji.admin} Admin [{count}]"
+         }
+}

@@ -1,0 +1,39 @@
+{
+  "help":{
+       "usage":"<comando>",
+       "description":"Pequeno texto aqui.",
+       "example":["gg","GW","ss"],
+       "permission":[
+                     {"text":"not_perm", "user":"5"}
+                    ]
+      
+         
+      },
+
+  "a":{
+       "usage":"<sub-comando> <comando>",
+       "description":"Pequeno texto aqui.",
+       "example":["gg","GW","ss"],
+       "permission":[
+                     {"text":"embed_links", "user":"1"}
+                    ],
+      
+       "c":{
+            "usage":"<comando>",
+            "description":"Pequeno texto aquis.",
+            "example":["gg","GW","ss"],
+            "permission":[
+                     {"text":"embed_links", "user":"1"}
+                    ]                  
+          },
+       "x":{
+            "usage":"<comando>",
+            "description":"Pequeno texto aquis.",
+            "example":["ggw","GW","ss"],
+            "permission":[
+                          {"text":"embed_links", "user":"1"}
+                        ]                  
+          }          
+      }
+
+}
