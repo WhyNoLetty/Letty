@@ -1,9 +1,10 @@
 from discord import Colour
 from discord.ext import commands
-from .data import Config, Cache
 from discord.ext.translation import Files
+from .data import Config, Cache
 from database import Database
 from os import listdir
+
 
 class Letty(commands.AutoShardedBot):
     def __init__(self, *args, **kwargs):
@@ -44,4 +45,5 @@ class Letty(commands.AutoShardedBot):
        try:
           await self.invoke(ctx)
        except Exception as e:
-            self.dispatch('command_error', ctx, e)         
+            self.dispatch('command_error', ctx, e)
+    
