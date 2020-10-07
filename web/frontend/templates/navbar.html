@@ -1,0 +1,37 @@
+      <nav id="letty" class="navbar navbar-expand-lg navbar-default">
+       <div class='container'>
+          <a class="navbar-brand" href="#">
+              <img src="{{ url_for('static', filename='img/letty.png')}}" class="navbar-icon-user"> Letty 
+              <span class="badge badge-light"><b>BETA</b></span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#"><i class="fas fa-home navbar-icon"></i>{{lang("website|navbar|index")}}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-terminal navbar-icon"></i> {{lang("website|navbar|cmds")}}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-tools navbar-icon"></i> {{lang("website|navbar|staff")}}</a>
+              </li>
+              <li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle" id="dropdown-social" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-link navbar-icon"></i> {{lang("website|navbar|social")}}</a>
+                   <div class="dropdown-menu" aria-labelledby="dropdown-social">
+                      <a class="dropdown-item" href="/link/youtube"><i class="fab fa-youtube"></i> {{lang("website|navbar|yt")}}</a>
+                      <a class="dropdown-item" href="/link/discord"><i class="fab fa-discord"></i> {{lang("website|navbar|discord")}}</a>
+                      <a class="dropdown-item" href="/link/twitter"><i class="fab fa-twitter"></i> {{lang("website|navbar|tt")}}</a>
+                      <a class="dropdown-item" href="/link/github"><i class="fab fa-github"></i> {{lang("website|navbar|git")}}</a>
+                   </div>
+              </li>
+            </ul>
+            <form class="form-inline">
+              <a href="/login" class="btn btn-sm btn-nav" id="letty"><i class="fas fa-sign-in-alt"></i>  {{lang("website|button|login")}}</a>
+              </form>
+          </div>
+       </div>
+      </nav>

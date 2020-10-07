@@ -1,12 +1,49 @@
       {% extends "base.html" %}
       
-      {% block title %}Letty - Um pequeno bot para o discord.{% endblock %}
+      {% block title %}{{lang("website|title|index")}}{% endblock %}
       
       {% block head %}{{ super() }}{% endblock %}
       
       {% block content %}
       <!-- BOX -->
-      <h1>Parte do index</h1>
+      <div id="jumb" class="jumbotron">
+          <div class="container">
+              <div class="row" style="display: flex;align-items: center;">
+                  <div class="col-md-6 text-center">
+                      <blockquote class="blockquote text-left">
+                          <div class="d-none d-block d-sm-none">
+                              <center>
+                                  <img src="{{ url_for('static', filename='img/letty.png')}}" id="jumb" class="image">
+                                  <h1 class="discord" id="font">Letty</h1>
+                              </center>
+                          </div>
+                          <div class="d-none d-lg-block">
+                              <h1 class="discord" id="font">Letty</h1>
+
+                          </div>
+                          <p class="mb-0">{{lang("website|index|jumbotron|1")}}<br>
+                                          {{lang("website|index|jumbotron|2")}}
+                          </p>
+                          <footer class="blockquote-footer">{{lang("website|index|jumbotron|3")}}</footer>
+                          <br>
+                          <div class="d-none d-block d-sm-none">
+                              <center>
+                                <a href="#" class="btn btn-sm btn-jumb" id="jumb"><i class="fas fa-plus"></i> {{lang("website|button|invite")}}</a>
+                                <a href="#" class="btn btn-sm btn-jumb" id="jumb"><i class="fas fa-star"></i> {{lang("website|button|vote")}}</a>
+                              </center>
+                          </div>
+                          <div class="d-none d-lg-block">
+                              <a href="#" class="btn btn-sm btn-jumb" id="jumb"><i class="fas fa-plus"></i> {{lang("website|button|invite")}}</a>
+                              <a href="#" class="btn btn-sm btn-jumb" id="jumb"><i class="fas fa-star"></i> {{lang("website|button|vote")}}</a>
+                          </div>
+                      </blockquote>
+                  </div>
+                  <div class="col-sm-4 d-none d-lg-block">
+                      <img src="{{ url_for('static', filename='img/discord.png')}}" width="580px" height="450px">
+                  </div>
+              </div>
+          </div>
+      </div>      
       <!-- END BOX -->
       {% endblock %}
 

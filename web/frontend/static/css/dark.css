@@ -1,0 +1,153 @@
+
+/* Aiwa.css v0.0.1 | MIT License | https://github.com/yuka-tuka/aiwa */
+/* bootstrap.css v4.3.1 | MIT License | https://github.com/twbs/bootstrap */
+    body { 
+          background-color: #303030
+         }
+    @font-face {
+                font-family: 'discord';
+                src: url('../font/discord.otf');
+               }
+
+    #font.discord{
+                  font-size: 3.7em;
+                  font-family: discord;
+                  color:#fff;
+                  }
+
+/* =================== NAVBAR =================== */
+    #letty.navbar-default .navbar-brand {
+                                         color: rgba(255, 255, 255, 1);
+                                        }
+    #letty.navbar-default {
+                           font-size: 15px;
+                           background-color: rgba(33, 33, 33, 1);
+                           border-width: 0px;
+                           border-radius: 0px;
+                          }
+    #letty.navbar-default .navbar-nav>li>a {
+                                            color: rgba(111, 111, 111, 1);
+                                            background-color: rgba(33, 33, 33, 1);
+                                            border-radius: 3px;
+                                            margin-left: 7px;
+                                           }                         
+
+    #letty.navbar-default .navbar-nav>li>a:hover,
+    #letty.navbar-default .navbar-nav>li>a:focus {
+                                                  color: rgba(206, 206, 206, 1);
+                                                  background-color: rgba(62, 62, 62, 1);
+                                                 }
+
+    #letty.navbar-default .navbar-nav>.active>a,
+    #letty.navbar-default .navbar-nav>.active>a:hover,
+    #letty.navbar-default .navbar-nav>.active>a:focus {
+                                                       color: rgba(206, 206, 206, 1);
+                                                       background-color: rgba(62, 62, 62, 1);
+                                                      }
+    #letty.navbar-default .dropdown-menu{  
+                                         color: rgba(206, 206, 206, 1);
+                                         background-color: rgba(62, 62, 62, 1);
+                                         transition-duration: 0.5s
+                                        }
+
+    #letty.navbar-default .dropdown-item{
+                                         color: rgba(206, 206, 206, 1);
+                                         background-color: rgba(62, 62, 62, 1);
+                                        }
+
+    #letty.navbar-default .dropdown-item:focus,
+    #letty.navbar-default .dropdown-item:hover {
+                                                color: rgba(206, 206, 206, 1);
+                                                background-color: rgba(33, 33, 33, 1);
+                                               }
+    
+    #letty.navbar-default .navbar-icon-profile{
+                                               width:30px;
+                                               border-radius: 50%;
+                                              }
+    #letty.navbar-default .navbar-icon-user{
+                                            width:25px;
+                                            border-radius: 50%;
+                                           }                                            
+    #letty.btn-nav {
+                    color: rgba(206, 206, 206, 1);
+                    background-color: rgba(62, 62, 62, 1);
+                    font-size: 15px;
+                    border-radius: 4px;
+                    border-width: 1px;
+                   }
+
+    #letty.btn-nav:hover {
+                          background-color: rgba(206, 206, 206, 1);
+                          color: rgba(62, 62, 62, 1);
+                         }
+
+    #letty.btn-nav:active, .btn-nav:focus {
+                                           background: rgba(235, 235, 235, 1);
+                                           color: rgba(33, 33, 33, 1);
+                                          }                                              
+
+    #letty.navbar-default .navbar-toggler-icon {
+                                                background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+                                               }
+
+    @media (max-width:768px) {
+                              #letty.navbar-default .navbar-icon{
+                                                                 margin-left: 7px;
+                                                                }
+                              #letty.navbar-default .btn-nav{
+                                                             margin-top: 8px;
+                                                             margin-left: 12px;
+                                                             }
+                              #letty.navbar-default .navbar-icon-user{
+                                                                      margin-left: 8px;
+                                                                     }     
+                              #letty.navbar-default .navbar-nav{
+                                                                margin-top: 8px;
+                                                               }                                                                                                                        
+                              #letty.navbar-default .nav-link{
+                                                              margin-top: 5px;
+                                                             }
+                             }
+
+/* =================== NAVBAR END =================== */
+
+/* =================== JUMBOTRON =================== */
+   
+    #jumb.jumbotron{
+                    background-color:#303030 !important;
+                    color:#fff !important;
+                    background-image:url('../img/cloud.svg');
+                    background-position:50%,50%;
+                    background-size:cover,cover;
+                    background-repeat:repeat,repeat;
+                   }
+
+    #jumb.image{
+                border: 4px solid #fff;
+                padding: 5px;
+                border-radius: 50%;
+                width: 170px;
+               
+               }
+    #jumb.btn-jumb{
+                   color: rgba(206, 206, 206, 1);
+                   background-color: rgba(62, 62, 62, 1);
+                   font-size: 15px;
+                   border-radius: 4px;
+                   border-width: 1px;
+                   }
+
+    #jumb.btn-jumb:hover {
+                          background-color: rgba(206, 206, 206, 1);
+                          color: rgba(62, 62, 62, 1);
+                         }
+
+    #jumb.btn-jumb:active, .btn-jumb:focus {
+                                             background: rgba(235, 235, 235, 1);
+                                             color: rgba(33, 33, 33, 1);
+                                            }                                              
+
+
+
+/* =================== JUMBOTRON END =================== */

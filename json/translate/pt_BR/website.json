@@ -1,0 +1,27 @@
+{
+	"navbar":{
+		      "index":"Ínicio",
+		      "cmds":"Comandos",
+		      "staff":"Equipe",
+		      "social":"Social",
+		      "yt":"Youtube",
+		      "discord":"Discord",
+		      "tt":"Twitter",
+		      "gt":"Github"
+	         },
+	"title":{
+		     "index":"Letty - Um pequeno bot para o discord"
+	        },
+	"index":{
+		     "jumbotron":{
+		     	          "1":"Recompense os usuários por serem ativos em seu servidor, mantenha seu servidor livre de spam, pessoas mal intecionadas e muito mais.",
+		     	          "2":"Junte-se aos 2 outros usuários em 1 servidores.",
+		     	          "3":"Tudo aquilo que você precisa!"
+	                     }
+	        },        
+	"button":{
+		      "login":"Entrar",
+		      "vote":"Votar",
+		      "invite":"Convite"
+		     }
+}

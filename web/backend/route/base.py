@@ -10,8 +10,7 @@ class Basic:
         @self.blueprint.route("/")
         @self.blueprint.route("/index")
         async def index():
-             db = await self.letty.db.get_guild(757616076166004846)
-             return await render_template("index.html")
+             lang = await self.letty.lang.get('pt_BR')
+             return await render_template("index.html", lang=lang)
         
-
         self.app.register_blueprint(self.blueprint, url_prefix="/")

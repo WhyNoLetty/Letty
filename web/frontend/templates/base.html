@@ -33,19 +33,27 @@
       <meta name="description" content="Um pequeno bot para o discord, que contém sistema de level, música, moderação, anime & muito mais!">
       <meta name="keywords" content="letty discord, letty,letty dashboard, letty website,letty site,bot em português,bot para o discord,bot pra discord,bot para discord,bot dashboard,bot painel,bot moderação,bot moderation, bot traduzido, bot com musica, bot com música, música discord, musica no discord">
       <!-- META CSS -->
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/dark.css')}}">
       <!-- END LIST -->
       <title>{% block title %}{% endblock %}</title>
     {% endblock %}
 </head>
 <body>
-      
+    <!-- NAVBAR -->
+    {% include 'navbar.html' %} 
+    <!-- NAVBAR END -->
+    
+    <!-- CONTENT -->
     <div id="content">{% block content %}{% endblock %}</div>
+    <!-- CONTENT END -->     
     
     {% block js %}
     <!-- JAVASCRIPT -->
-    <!-- <script src="{{ url_for('static', filename='js/jquery.js') }}"></script> -->
-
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='js/icon.js') }}"></script>
     <!-- END LIST -->
     {% endblock %}
 </body>
