@@ -1,6 +1,5 @@
 from discord.ext import commands
 import discord
-import inspect
 
 class Info(commands.Cog):
     def __init__(self, letty):
