@@ -1,10 +1,6 @@
-aiohttp==3.6.2
-bs4==0.0.1
-discord.py==1.3.4
+discord.py==1.4.1
 dnspython==2.0.0
-git+https://github.com/WhyNoLetty/Translation.git
 motor==2.1.0
-quart
-python-dateutil==2.8.1
 python-dotenv==0.14.0
-uptime==3.0.1
+Quart==0.13.1
+translate@git+https://github.com/WhyNoLetty/Translation.git@c782769994874ac0032407dad2c114ad4c0b0109
