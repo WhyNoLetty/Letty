@@ -22,15 +22,18 @@
               <li class="nav-item dropdown">
                    <a class="nav-link dropdown-toggle" id="dropdown-social" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-link navbar-icon"></i> {{lang("website|navbar|social")}}</a>
                    <div class="dropdown-menu" aria-labelledby="dropdown-social">
-                      <a class="dropdown-item" href="/link/youtube"><i class="fab fa-youtube"></i> {{lang("website|navbar|yt")}}</a>
-                      <a class="dropdown-item" href="/link/discord"><i class="fab fa-discord"></i> {{lang("website|navbar|discord")}}</a>
-                      <a class="dropdown-item" href="/link/twitter"><i class="fab fa-twitter"></i> {{lang("website|navbar|tt")}}</a>
-                      <a class="dropdown-item" href="/link/github"><i class="fab fa-github"></i> {{lang("website|navbar|git")}}</a>
+                      <a class="dropdown-item" href="/url/youtube" target="_blank"><i class="fab fa-youtube"></i> {{lang("website|navbar|yt")}}</a>
+                      <a class="dropdown-item" href="/url/suport" target="_blank"><i class="fab fa-discord"></i> {{lang("website|navbar|discord")}}</a>
+                      <a class="dropdown-item" href="/url/twitter" target="_blank"><i class="fab fa-twitter"></i> {{lang("website|navbar|tt")}}</a>
+                      <a class="dropdown-item" href="/url/github" target="_blank"><i class="fab fa-github"></i> {{lang("website|navbar|gt")}}</a>
                    </div>
               </li>
             </ul>
             <form class="form-inline">
-              <a href="/login" class="btn btn-sm btn-nav" id="letty"><i class="fas fa-sign-in-alt"></i>  {{lang("website|button|login")}}</a>
+              {% if user == None %}
+                <a href="/url/login" class="btn btn-sm btn-nav" id="letty"><i class="fas fa-sign-in-alt"></i>  {{lang("website|button|login")}}</a>
+              {% else %}
+              {% endif %}
               </form>
           </div>
        </div>

@@ -1,7 +1,9 @@
 {
+  "youtube":"https://www.youtube.com",
   "suport":"https://discord.gg/WxKHphz",
-  "invite":"https://discord.com/api/oauth2/authorize?client_id=702849091872358420&permissions=8&scope=bot",
+  "twitter":"https://www.twitter.com",
   "github":"https://github.com/WhyNoLetty",
   "donate":"http://patreon.com/letty_discord",
-  "website":"https://www.letty.xyz"
+  "website":"http://192.168.100.130:3000",
+  "endpoint":"https://discord.com/oauth2/authorize"
 }

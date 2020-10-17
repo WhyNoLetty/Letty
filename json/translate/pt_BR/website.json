@@ -15,7 +15,7 @@
 	"index":{
 		     "jumbotron":{
 		     	          "1":"Recompense os usuários por serem ativos em seu servidor, mantenha seu servidor livre de spam, pessoas mal intecionadas e muito mais.",
-		     	          "2":"Junte-se aos 2 outros usuários em 1 servidores.",
+		     	          "2":"Junte-se aos outros {members} usuários em {guilds} servidores.",
 		     	          "3":"Tudo aquilo que você precisa!"
 	                     }
 	        },        
