@@ -1,9 +1,7 @@
-const guildId = "767997083739095070";
-const memberLimit = 47;
 
 document.addEventListener('DOMContentLoaded', async function (event) {
     const xhReq = new XMLHttpRequest();
-    xhReq.open('GET', `https://discordapp.com/api/guilds/${guildId}/widget.json`, true);
+    xhReq.open('GET', `https://discord.com/api/guilds/767997083739095070/widget.json`, true);
     xhReq.send(null);
     xhReq.onload = (r, p) => {
         const discordjson = JSON.parse(xhReq.responseText);
@@ -20,8 +18,8 @@ document.addEventListener('DOMContentLoaded', async function (event) {
                 </div>`;
             })
 
-            if (discordjson.members.length > memberLimit) {
-                let toShow = discordjson.members.length - memberLimit;
+            if (discordjson.members.length > 47) {
+                let toShow = discordjson.members.length - 47;
                 if (toShow > 99) {
                     toShow = 99;
                 }
