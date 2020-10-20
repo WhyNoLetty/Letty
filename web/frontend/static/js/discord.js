@@ -1,4 +1,4 @@
-const guildId = "462058269565911040";
+const guildId = "767997083739095070";
 const memberLimit = 47;
 
 document.addEventListener('DOMContentLoaded', async function (event) {
