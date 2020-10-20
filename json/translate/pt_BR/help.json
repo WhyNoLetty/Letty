@@ -9,7 +9,36 @@
       
          
       },
-
+  "make":{
+       "usage":"<comando>",
+       "description":"Pequeno texto aqui.",
+       "example":["gg","GW","ss"],
+       "permission":[
+                     {"text":"not_perm", "user":"5"}
+                    ]
+      
+         
+      },
+  "gg":{
+       "usage":"<comando>",
+       "description":"Pequeno texto aqui.",
+       "example":["gg","GW","ss"],
+       "permission":[
+                     {"text":"not_perm", "user":"5"}
+                    ]
+      
+         
+      },      
+  "eval":{
+       "usage":"<comando>",
+       "description":"Pequeno texto aqui.",
+       "example":["gg","GW","ss"],
+       "permission":[
+                     {"text":"not_perm", "user":"5"}
+                    ]
+      
+         
+      },      
   "a":{
        "usage":"<sub-comando> <comando>",
        "description":"Pequeno texto aqui.",

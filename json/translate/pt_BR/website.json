@@ -10,7 +10,8 @@
 		      "gt":"Github"
 	         },
 	"title":{
-		     "index":"Letty - Um pequeno bot para o discord"
+		     "index":"Letty - Um pequeno bot para o discord",
+		     "cmds":"Letty - Listagem de todos os comandos"
 	        },
 	"index":{
 		     "jumbotron":{
@@ -18,7 +19,18 @@
 		     	          "2":"Junte-se aos outros {members} usuários em {guilds} servidores.",
 		     	          "3":"Tudo aquilo que você precisa!"
 	                     }
-	        },        
+
+            },
+	"commands":{
+		        "search":"Qual o comando que desejas buscar?",
+		        "join":"Entrar",
+		        "cmd":{"aliase":"Alternativas", "example":"Exemplos", "sub":"Sub-comandos","usage":"Uso", "perm":"Permissões necessárias"},
+		        "category":{
+		        	  	    "info":{"icon":"fas fa-info","text":"Ajuda"},
+  	                        "owner":{"icon":"fas fa-tools","text":"Admin"}
+		                    }
+	           },
+	               
 	"button":{
 		      "login":"Entrar",
 		      "vote":"Votar",

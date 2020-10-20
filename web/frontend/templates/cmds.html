@@ -1,0 +1,96 @@
+      {% extends "base.html" %}
+      
+      {% block title %}{{lang("website|title|cmds")}}{% endblock %}
+      
+      {% block head %}{{ super() }}{% endblock %}
+      
+      {% block content %}
+      <!-- BOX --><br>
+      <section class="commands">
+          
+          <div class="container bg">
+              <div class="row">   
+                <div class="col-md-3">
+                      <div class="card">
+                          <h6 class="card-header"></h6>
+                          <div id="list-modules" class="list-group menu">
+                              <button class="cmd-btn-list cmd-btn-list-focus" id="command"><i class="fa fa-bars"></i> All</button>
+                              {% for name, cog in bot.cogs.items() %}
+                                {% if not name.lower() in modules %}
+                                  <button class="cmd-btn-list" id="{{name.lower()}}">
+                                   <i class="{{lang('website|commands|category')[name.lower()]['icon']}}"></i> {{lang('website|commands|category')[name.lower()]['text']}}</span>
+                                  </button>
+                                {% endif %}
+                              {% endfor %}
+                          </div>
+                      </div>
+                </div>     
+                <div class="col-md-6">
+                      <input type="text" class="form-control" id="search-input" aria-describedby="basic-addon3" placeholder="{{lang('website|commands|search')}}"/>
+                    <div class="tab-content" id="accordion">
+                      {% for name, cog in bot.cogs.items() %}
+                         {% for cmd in cog.get_commands() %}
+
+                         <div class="card command {{name.lower()}}">
+                             <div class="card-header" id="{{name.lower()}}s" data-toggle="collapse" data-target="#{{cmd.name.lower()}}" aria-expanded="true" aria-controls="{{cmd.name.lower()}}"><span class="badge badge-dark">{{cmd.name.lower()}}</span> - {{lang('help')[cmd.name.lower()]['description']}}
+                             </div>
+                               <div id="{{cmd.name.lower()}}" class="collapse" aria-labelledby="{{name.lower()}}s" data-parent="#accordion">
+                                   <div class="card-body">
+                                      <h6>{{lang('website|commands|cmd|usage')}} : 
+                                                               <span class="badge badge-dark">{{lang|use(cmd)}}</span>
+                                      <h6>
+                                      <h6>{{lang('website|commands|cmd|aliase')}} :{% for ali in cmd.aliases %} 
+                                                               <span class="badge badge-dark">{{ali}}</span>
+                                                              {% else %}
+                                                               <span class="badge badge-dark">{{lang('value|not_defined|f')}}</span>
+                                                              {% endfor %}
+                                      <h6>
+                                      {% if cmd|sub != None %}
+                                      <h6>{{lang('website|commands|cmd|sub')}} :{% for ali in cmd|sub %} 
+                                                               <span class="badge badge-dark">{{ali}}</span>
+                                                              {% endfor %}
+                                      {% endif %}
+                                      <h6>   
+                                      <h6>{{lang('website|commands|cmd|perm')}} :{% for ali in lang|perm(cmd) %} 
+                                                               <span class="badge badge-dark">{{ali}}</span>
+                                                              {% endfor %}
+                                      <h6> 
+
+
+                                      <h6>{{lang('website|commands|cmd|example')}} :{% for ali in lang|example(cmd) %} 
+                                                               <span class="badge badge-dark">{{ali}}</span>
+                                                              {% endfor %}
+                                      <h6>   
+
+                                   </div>
+                            </div>                      
+
+                         </div>
+                         {% endfor %}
+
+                      {% endfor %}
+                    </div>
+
+                </div>
+                  <div class="col-md-3">
+                      <div class="card discord">
+                          <h6 class="card-header"><img class="discord-svg" src="{{ url_for('static', filename='img/discord.svg')}}" alt="Discord"/></h6>
+                          <div class="item-discord">
+                              <div class="discord-content">
+                                  <div id="members-list"></div>
+                              </div>
+                              <div class="discord-footer">
+                                  <a href="/url/suport" class="btn btn-sm btn-nav" id="letty"><i class="fas fa-plus"></i>  {{lang("website|button|login")}}</a>
+
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+
+              </div>
+          </div>
+      </section>
+      <!-- END BOX -->
+      {% endblock %}
+

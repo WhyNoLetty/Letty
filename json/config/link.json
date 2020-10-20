@@ -5,5 +5,7 @@
   "github":"https://github.com/WhyNoLetty",
   "donate":"http://patreon.com/letty_discord",
   "website":"http://192.168.100.130:3000",
-  "endpoint":"https://discord.com/oauth2/authorize"
+  "endpoint":"https://discord.com/oauth2/authorize",
+  "invite":"https://discord.gg/WxKHphz"
+
 }

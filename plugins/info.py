@@ -63,5 +63,18 @@ class Info(commands.Cog):
        embed.set_footer(text=f"{ctx.me.name} © 2020" , icon_url=ctx.me.avatar_url)
        return await ctx.send(embed=embed)
 
+
+
+
+    @commands.group(name='a')
+    async def git(self, ctx):
+        if ctx.invoked_subcommand is None:
+            await ctx.send('Invalid git command passed...')
+
+    @git.command(name='c')
+    async def d(self, ctx):
+        await ctx.send('Pushing to')
+
+
 def setup(letty):
     letty.add_cog(Info(letty))        

@@ -10,11 +10,11 @@
 
           <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#"><i class="fas fa-home navbar-icon"></i>{{lang("website|navbar|index")}}</a>
+              <li class="nav-item {%if route == 'index' %}active{% endif%}">
+                <a class="nav-link" href="/"><i class="fas fa-home navbar-icon"></i> {{lang("website|navbar|index")}}</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-terminal navbar-icon"></i> {{lang("website|navbar|cmds")}}</a>
+              <li class="nav-item {%if route == 'cmds' %}active{% endif%}">
+                <a class="nav-link" href="/commands"><i class="fas fa-terminal navbar-icon"></i> {{lang("website|navbar|cmds")}}</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fas fa-tools navbar-icon"></i> {{lang("website|navbar|staff")}}</a>
