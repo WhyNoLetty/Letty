@@ -16,10 +16,9 @@ class Basic:
         @self.blueprint.route("/index")
         async def index():
              lang = await self.letty.lang.get('pt_BR')
-             user = None
              guilds = [g for g in self.letty.guilds]
              members = sum(g.member_count for g in guilds if not g.unavailable)
-             return await render_template("index.html", lang=lang, guilds=len(guilds), members=members, user=user, route='index')
+             return await render_template("index.html", lang=lang, guilds=len(guilds), members=members, user=None, route='index')
         
         
         @self.blueprint.route("/url/<value>")
@@ -29,7 +28,7 @@ class Basic:
         @self.blueprint.route("/commands")
         async def cmds():
            lang = await self.letty.lang.get('pt_BR')
-           return await render_template("cmds.html", lang=lang, bot=self.letty, route='cmds')
+           return await render_template("cmds.html", lang=lang, bot=self.letty, route='cmds', user=None)
 
 
         self.app.register_blueprint(self.blueprint, url_prefix="/")
