@@ -4,6 +4,7 @@ from discord.ext.translation import Files
 from .data import Config, Cache
 from database import Database
 from os import listdir
+import aiohttp
 
 
 class Letty(commands.AutoShardedBot):
@@ -14,6 +15,7 @@ class Letty(commands.AutoShardedBot):
         self.cache = Cache()
         self.db = Database(letty=self)
         self.lang = Files(source='pt_BR')
+        self.session = aiohttp.ClientSession(loop=self.loop)
         self.color = [Colour.from_rgb(*self.data.config.color.embed.normal), Colour.from_rgb(*self.data.config.color.embed.error)]
 
     async def on_start(self):

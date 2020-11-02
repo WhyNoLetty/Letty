@@ -24,7 +24,7 @@
 	"commands":{
 		        "search":"Qual o comando que desejas buscar?",
 		        "join":"Entrar",
-		        "cmd":{"aliase":"Alternativas", "example":"Exemplos", "sub":"Sub-comandos","usage":"Uso", "perm":"Permissões necessárias"},
+		        "cmd":{"description":"Descrição","aliase":"Alternativas", "example":"Exemplos", "sub":"Sub-comandos","usage":"Uso", "perm":"Permissões necessárias"},
 		        "category":{
 		        	  	    "info":{"icon":"fas fa-info","text":"Ajuda"},
   	                        "owner":{"icon":"fas fa-tools","text":"Admin"}

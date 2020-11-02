@@ -2,6 +2,7 @@
   "help":{
        "usage":"<comando>",
        "description":"Pequeno texto aqui.",
+       "description_s":"Pequeno texto",
        "example":["gg","GW","ss"],
        "permission":[
                      {"text":"not_perm", "user":"5"}
@@ -12,6 +13,7 @@
   "make":{
        "usage":"<comando>",
        "description":"Pequeno texto aqui.",
+       "description_s":"Pequeno texto",
        "example":["gg","GW","ss"],
        "permission":[
                      {"text":"not_perm", "user":"5"}
@@ -22,6 +24,7 @@
   "gg":{
        "usage":"<comando>",
        "description":"Pequeno texto aqui.",
+       "description_s":"Pequeno texto",
        "example":["gg","GW","ss"],
        "permission":[
                      {"text":"not_perm", "user":"5"}
@@ -32,6 +35,7 @@
   "eval":{
        "usage":"<comando>",
        "description":"Pequeno texto aqui.",
+       "description_s":"Pequeno texto",
        "example":["gg","GW","ss"],
        "permission":[
                      {"text":"not_perm", "user":"5"}
@@ -42,6 +46,7 @@
   "a":{
        "usage":"<sub-comando> <comando>",
        "description":"Pequeno texto aqui.",
+       "description_s":"Pequeno texto",
        "example":["gg","GW","ss"],
        "permission":[
                      {"text":"embed_links", "user":"1"}
@@ -50,6 +55,7 @@
        "c":{
             "usage":"<comando>",
             "description":"Pequeno texto aquis.",
+            "description_s":"Pequeno texto",
             "example":["gg","GW","ss"],
             "permission":[
                      {"text":"embed_links", "user":"1"}
@@ -58,6 +64,7 @@
        "x":{
             "usage":"<comando>",
             "description":"Pequeno texto aquis.",
+            "description_s":"Pequeno texto",
             "example":["ggw","GW","ss"],
             "permission":[
                           {"text":"embed_links", "user":"1"}

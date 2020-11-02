@@ -14,17 +14,24 @@
                       <div class="card">
                           <h6 class="card-header"></h6>
                           <div id="list-modules" class="list-group menu">
-                              <button class="cmd-btn-list cmd-btn-list-focus" id="command"><i class="fa fa-bars"></i> All</button>
+                              <button class="cmd-btn-list cmd-btn-list-focus" id="command">All</button>
                               {% for name, cog in bot.cogs.items() %}
                                 {% if not name.lower() in modules %}
-                                  <button class="cmd-btn-list" id="{{name.lower()}}">
-                                   <i class="{{lang('website|commands|category')[name.lower()]['icon']}}"></i> {{lang('website|commands|category')[name.lower()]['text']}}</span>
+
+                                  <button type="button" class="btn btn-labeled cmd-btn-list" id='{{name.lower()}}'>
+                                        {{lang('website|commands|category')[name.lower()]['text']}}
                                   </button>
+
                                 {% endif %}
+   
+
                               {% endfor %}
+
                           </div>
                       </div>
                 </div>     
+
+
                 <div class="col-md-6">
                       <input type="text" class="form-control" id="search-input" aria-describedby="basic-addon3" placeholder="{{lang('website|commands|search')}}"/>
                     <div class="tab-content" id="accordion">
@@ -32,7 +39,7 @@
                          {% for cmd in cog.get_commands() %}
 
                          <div class="card command {{name.lower()}}">
-                             <div class="card-header" id="{{name.lower()}}s" data-toggle="collapse" data-target="#{{cmd.name.lower()}}" aria-expanded="true" aria-controls="{{cmd.name.lower()}}"><span class="badge badge-dark">{{cmd.name.lower()}}</span> - {{lang('help')[cmd.name.lower()]['description']}}
+                             <div class="card-header" id="{{name.lower()}}s" data-toggle="collapse" data-target="#{{cmd.name.lower()}}" aria-expanded="true" aria-controls="{{cmd.name.lower()}}"><span class="badge badge-dark">{{cmd.name.lower()}}</span> - {{lang('help')[cmd.name.lower()]['description_s']}}
                              </div>
                                <div id="{{cmd.name.lower()}}" class="collapse" aria-labelledby="{{name.lower()}}s" data-parent="#accordion">
                                    <div class="card-body">
@@ -61,7 +68,8 @@
                                                                <span class="badge badge-dark">{{ali}}</span>
                                                               {% endfor %}
                                       <h6>   
-
+                                      <h6>{{lang('website|commands|cmd|description')}} : {{lang('help')[cmd.name.lower()]['description']}}
+                                      <h6> 
                                    </div>
                             </div>                      
 
