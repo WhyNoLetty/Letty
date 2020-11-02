@@ -1,4 +1,5 @@
 from quart import session, redirect
+from functools import wraps
 
 def require_auth(f):
     @wraps(f)
